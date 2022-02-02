@@ -27,5 +27,14 @@ steps:
   inputs:
     project: '99.6-VUM-API-BRON-Utr-WerkzoekendeProfielen'
     rootFolder: '$(Common.TestResultsDirectory)'
-
+- task: SendEmail@1
+  inputs:
+    To: 'odenijs@inlichtingenbureau.nl jgross@inlichtingenbureau'
+    From: 'vumtests.inlichtingenbureau.nl'
+    Subject: 'Vum test resultaten'
+    Body: 'Hier een url naar de test resultaten'
+    BodyAsHtml: true
+    AddAttachment: false
+    SmtpServer: 'smtp.vum.inlichtingenbureau.nl'
+    SmtpUsername: 'smtpvum'
   
