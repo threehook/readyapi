@@ -19,11 +19,13 @@ steps:
   inputs:
     connection: https://gitlab.com/inlichtingenbureau/
     userRepository: vum/readyapi_testen_v2
-    #defaultVersionType: 'latest' # Options: latest, specificVersion, specificTag
-    #version: # Required when defaultVersionType != Latest
-    #itemPattern: '**' # Optional
-    #downloadPath: '$(System.ArtifactsDirectory)' 
+    #defaultVersionType: 'latest' # Opties: latest, specificVersion, specificTag
+    #version: # Verplicht als defaultVersionType != Latest
+    #itemPattern: '**' # Optioneel file pattern voor te downloaden files
+    #downloadPath: '$(System.ArtifactsDirectory)' # Pad op de agent machine waar de release assets worden gedownload
 - task: SoapUIProForAzureDevOpsTask@2
   inputs:
     project: '99.6-VUM-API-BRON-Utr-WerkzoekendeProfielen'
     rootFolder: '$(Common.TestResultsDirectory)'
+
+  
