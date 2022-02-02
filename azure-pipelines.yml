@@ -9,6 +9,12 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+schedules:
+- cron: 0 */3 * * * # cron syntax defining a schedule
+  displayName: Triggering ReadyAPI tests against VUM services # friendly name given to a specific schedule
+  branches:
+    include: [ develop ] # which branches the schedule applies to
+
 steps:
 - task: SoapUIProForAzureDevOpsTask@2
   inputs:
