@@ -1,4 +1,4 @@
-# Deze pipeline draait ReadyAPI tests tegen de VUM services om 03:00 uur ('s-nachts').
+# Deze pipeline draait ReadyAPI tests tegen de VUM services om 03:00 uur ('s-nachts).
 
 # Trigger obv tijd en niet door een commit.
 trigger: none # Zet de CI commit trigger uit
