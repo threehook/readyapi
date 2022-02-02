@@ -1,19 +1,20 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# This pipeline runs ReadyAPI tests agains the VUM services at 03:00 o'clock.
 
-trigger:
-- main
+# This pipeline is triggered by time and not by a commit.
+trigger: none # Disable CI commit trigger
+pr: none # Disable pull request triggers.
 
 pool:
   vmImage: ubuntu-latest
 
 schedules:
 - cron: 0 */3 * * * # cron syntax defining a schedule
-  displayName: Triggering ReadyAPI tests against VUM services # friendly name given to a specific schedule
+  displayName: ReadyAPI tests tegen VUM services om 03:00 uur # friendly name given to a specific schedule
   branches:
     include: [ develop ] # which branches the schedule applies to
+
+
+
 
 steps:
 - task: SoapUIProForAzureDevOpsTask@2
