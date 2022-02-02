@@ -10,9 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: CopyFiles@2
+- task: SoapUIProForAzureDevOpsTask@2
   inputs:
-    SourceFolder: '.'
-    Contents: '**'
-    TargetFolder: 'sources'
-    CleanTargetFolder: true
+    rootFolder: '$(Common.TestResultsDirectory)'
