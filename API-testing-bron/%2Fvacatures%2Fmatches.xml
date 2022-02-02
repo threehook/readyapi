@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/vacatures/matches" path="/vacatures/matches" id="45e433a5-a571-4b8b-bdca-3d57a6eeef89" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="45e433a5-a571-4b8b-bdca-3d57a6eeef89fileName">%2Fvacatures%2Fmatches</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="post_zoek_matches" id="b8700317-e361-4384-a6bd-c915a4892bb7" method="POST">
+    <con:description>Zoek matches voor een bepaald zoekprofiel</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>X-VUM-berichtVersie</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-fromParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-toParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-viaParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-SUWIparty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:dataType>boolean</con:dataType>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "hoeveelheidResultaten" : 0
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>[ {
+  "maximumAantalResultatenBereikt" : true,
+  "matches" : [ {
+    "idVacature" : "string",
+    "codeWerkEnDenkniveauMinimaal" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "sluitingsDatumVacature" : "2015-07-20",
+    "sollicitatiewijze" : [ {
+      "codeSollicitatieWijze" : "string"
+    } ],
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "werkervaring" : [ {
+      "aantalJarenWerkzaamInBeroep" : 0
+    } ],
+    "rijbewijs" : [ {
+      "codeSoortRijbewijs" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+    } ],
+    "opleiding" : [ {
+      "codeNiveauOpleiding" : 0,
+      "indicatieDiploma" : 0,
+      "opleidingsnaam" : {
+        "codeOpleidingsnaam" : "string",
+        "omschrijvingOpleidingsnaam" : "string",
+        "naamOpleidingOngecodeerd" : "string"
+      }
+    } ],
+    "gedragscompetentie" : [ {
+      "codeGedragscompetentie" : 0,
+      "omschrijvingGedragsCompetentie" : "string",
+      "codeBeheersingGedragscompetentie" : 0
+    } ],
+    "vakvaardigheid" : [ {
+      "omschrijving" : "string"
+    } ],
+    "taalbeheersing" : [ {
+      "codeTaal" : "string",
+      "codeNiveauTaalbeheersingModeling" : 0,
+      "codeNiveauTaalbeheersingSchriftelijk" : 0,
+      "codeNiveauTaalbeheersingLezen" : 0,
+      "codeTaalbeheersingLuisteren" : 0
+    } ]
+  } ]
+} ]</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="6b3565e9-5d2d-4002-ba2d-e17d4dc037e8" mediaType="application/json" postQueryString="false">
+      <con:settings/>
+      <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "hoeveelheidResultaten" : 0\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="X-VUM-toParty" value=""/>
+        <con:entry key="X-VUM-fromParty" value=""/>
+        <con:entry key="X-VUM-viaParty" value=""/>
+        <con:entry key="X-VUM-SUWIparty" value=""/>
+        <con:entry key="X-VUM-berichtVersie" value=""/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+</con:resource>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="cc911668-9448-4d3f-9d8d-852fe42daf29" name="Syntactische_Testen_API_Broker_VAC_SCA" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="cc911668-9448-4d3f-9d8d-852fe42daf29fileName">Syntactische_Testen_API_Broker_VAC_SCA</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

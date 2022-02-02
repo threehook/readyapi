@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/utility/setResponse" path="/utility/setResponse" id="d554cffe-f7bb-4354-99bd-e70d0103acfc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d554cffe-f7bb-4354-99bd-e70d0103acfcfileName">%2Futility%2FsetResponse</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="post_matches_operations" id="d449c97f-321c-43f2-899d-1c9362b650b7" method="POST">
+    <con:description>Matches to be returned for specific request</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "request" : {
+    "vraagObject" : { }
+  },
+  "response" : [ { } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="98d0b569-fb30-4e8d-ac0e-2e273a9026f2" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "request" : {\r
+    "vraagObject" : { }\r
+  },\r
+  "response" : [ { } ]\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="delete_matches_operations" id="9d28b389-4bf3-4443-9022-b8f33e4ed1b9" method="DELETE">
+    <con:description>Delete set answer for certain matches call</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "vraagObject" : { }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="576040c7-4baa-4ea5-a157-5eaba0cc089a" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "vraagObject" : { }\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

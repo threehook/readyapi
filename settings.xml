@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="21d178e4-3eb9-4787-a92d-b3ddb7700716" created="3.10.1" activeEnvironment="Test" name="Project VUM v0.99.6" resourceRoot="" compositeProjectFormat="1.3" updated="3.20.0 2021-12-15T13:09:32Z" encryptionMode="Not encrypted" runType="PARALLELL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="21d178e4-3eb9-4787-a92d-b3ddb7700716fileName">Project-VUM-v0-99-4a</con:setting>
+  </con:settings>
+  <con:requirements>
+    <con:requirement>
+      <con:id>US 7 Verplichte velden voor Geomatching</con:id>
+      <con:links/>
+      <con:testCases>
+        <con:entry>a84de13c-52fd-48c2-94d6-3eff16659ecb</con:entry>
+      </con:testCases>
+    </con:requirement>
+  </con:requirements>
+  <con:properties>
+    <con:property>
+      <con:name>bronIdAms</con:name>
+    </con:property>
+    <con:property>
+      <con:name>bronIdUtr</con:name>
+    </con:property>
+  </con:properties>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer>
+    <con:oAuth2Profile>
+      <con:name>gitlab update</con:name>
+      <con:type>OAuth 2.0</con:type>
+      <con:authorizationURI/>
+      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
+      <con:oAuth2Flow>AUTHORIZATION_CODE_GRANT</con:oAuth2Flow>
+      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
+      <con:useAuthHeader>false</con:useAuthHeader>
+      <con:jwtConfiguration/>
+      <con:responseType>id_token</con:responseType>
+    </con:oAuth2Profile>
+  </con:oAuth2ProfileContainer>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:environment id="c5dfc3b8-e571-4653-9592-48c7baf6f1fd" name="Test" index="0">
+    <con:service type="REST" name="API testing-bron-2">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="API testing-bron">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="CB API testing-callback">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-callback.westeurope.azurecontainer.io</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API BRON Ams Vacatures">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron.westeurope.azurecontainer.io/api/v1/</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API BRON Utr Vacatures">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron-2.westeurope.azurecontainer.io/api/v1/</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API BRON Ams WerkzoekendeProfielen">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron.westeurope.azurecontainer.io/api/v1/</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API BRON Utr WerkzoekendeProfielen">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron-2.westeurope.azurecontainer.io/api/v1/</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API Broker werkzoekendeProfielen">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://jobsearch.vum.vum.n-id.network/v1</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API Broker vacatures">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://jobsearch.vum.vum.n-id.network/v1</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>bronIdAms</con:name>
+      <con:value>2d26cbcb-cf76-4b0b-835e-cd4a8586cc1e</con:value>
+    </con:property>
+    <con:property>
+      <con:name>bronIdUtr</con:name>
+      <con:value>111c648e-d51c-4379-9f9f-69fa27cb66e8</con:value>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="b652af83-4ed9-49cb-baa0-fe313098294e" name="Accept" index="1">
+    <con:service type="REST" name="API testing-bron-2">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="API testing-bron">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="CB API testing-callback">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-callback.westeurope.azurecontainer.io</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API BRON Ams Vacatures">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron.westeurope.azurecontainer.io/api/v1/</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API BRON Utr Vacatures">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron-2.westeurope.azurecontainer.io/api/v1/</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API BRON Ams WerkzoekendeProfielen">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron.westeurope.azurecontainer.io/api/v1/</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API BRON Utr WerkzoekendeProfielen">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://testing-bron-2.westeurope.azurecontainer.io/api/v1/</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API Broker werkzoekendeProfielen">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="99.6 VUM API Broker vacatures">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>bronIdAms</con:name>
+      <con:value>71d491c4-dddc-4df6-8844-e36d4ebfcd5a</con:value>
+    </con:property>
+    <con:property>
+      <con:name>bronIdUtr</con:name>
+      <con:value>777f7d03-cab1-4795-a2e4-9e4050c62b99</con:value>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:authRepository>
+    <con:oAuth20AuthEntry>
+      <con:name>gitlab update</con:name>
+      <con:type>OAuth 2.0</con:type>
+      <con:authorizationURI/>
+      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
+      <con:oAuth2Flow>AUTHORIZATION_CODE_GRANT</con:oAuth2Flow>
+      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
+      <con:useAuthHeader>false</con:useAuthHeader>
+      <con:jwtConfiguration/>
+      <con:responseType>id_token</con:responseType>
+    </con:oAuth20AuthEntry>
+  </con:authRepository>
+  <con:environmentSpec>
+    <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+  <con:tags/>
+</con:soapui-project>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="ccba7b26-1ba6-47a9-bd28-502a95aacd83" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_Sem_1-1_Error_invalid_vumid_results_in_400" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ccba7b26-1ba6-47a9-bd28-502a95aacd83fileName">TC_Sem_1-1_Error_invalid_vumid_results_in_400</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="getWerkzoekendeProfiel #25 - Request 1" id="d933c230-f196-4f7c-a210-fcd2fd8b588a">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker werkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/{vumID}" methodName="getWerkzoekendeProfiel" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getWerkzoekendeProfiel #25 - Request 1" id="90545fa0-b041-4393-b540-7a352fa78dfb" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/werkzoekendeProfielen/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="fc7f68ef-dc5b-431a-9b1e-fad59af16af7" name="Check status code = 400">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Simple Contains" id="5c8e61b7-eab6-48d7-aa64-afa29ae5fe4a" name="Check err_type">
+          <con:configuration>
+            <token>ERROR_TYPE_INVALID_ARGUMENT</token>
+            <ignoreCase>true</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Simple Contains" id="5864cfe9-afe3-427a-91ce-4879796ae270" name="Check message">
+          <con:configuration>
+            <token>ERROR_TYPE_INVALID_ARGUMENT</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-toParty" value=""/>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="vumID" value="8ff6dbca-9494-4626-a8f4-385e0df281e8"/>
+          <con:entry key="X-VUM-berichtVersie" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+          <con:entry>vumID</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

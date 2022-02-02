@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="9d837ef6-a94c-439a-9b29-f081254cb7c4" name="Semantische_Testen_API_Broker_VAC_Errors" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="63c2bfe3-e0e7-4d09-8f7e-20618b8891e7fileName">Semantische_Testen_Errors</con:setting>
+    <con:setting id="21c7e188-2bbc-4a98-9da6-481fcf8f52c0fileName">Semantische_Testen_VAC_API_Bemiddelaar-Broker_Errors</con:setting>
+    <con:setting id="9d837ef6-a94c-439a-9b29-f081254cb7c4fileName">Semantische_Testen_API_Broker_VAC_Errors</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="6052a768-00b8-495b-83bd-a6cc636db3af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

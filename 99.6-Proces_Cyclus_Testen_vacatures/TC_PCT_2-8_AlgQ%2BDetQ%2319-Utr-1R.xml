@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="b01b213d-2207-4651-8b22-e023ff09d9a3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_PCT_2-8_AlgQ+DetQ#19-Utr-1R" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>vaca - algemene vraag - 1 response - detail vraag #10 - 1 response</con:description>
+  <con:settings>
+    <con:setting id="a07a9fbd-d275-45af-a5d3-8688ce36f150fileName">TC_PCT_1-8_AlgQ%2BDetQ%2319-Utr-1R</con:setting>
+    <con:setting id="ea13740d-b2fd-4e24-8cd3-f874e87cce4cfileName">TC_PCT_2-8_AlgQ%2BDetQ%2319-Utr-1R</con:setting>
+    <con:setting id="b01b213d-2207-4651-8b22-e023ff09d9a3fileName">TC_PCT_2-8_AlgQ%2BDetQ%2319-Utr-1R</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Generate randomGuid" id="2021a950-486e-4c16-b406-2e9ce6ce805c">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>GUID</GeneratorType0>
+          <PropertyName0>randomGuid</PropertyName0>
+          <repetitionCountrandomGuid>0</repetitionCountrandomGuid>
+          <repeatValuesrandomGuid>false</repeatValuesrandomGuid>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>randomGuid</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="019b4e35-0869-4784-9c92-b2e39451ed71">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>randomGuid</con:name>
+        <con:sourceType>randomGuid</con:sourceType>
+        <con:sourceStep>Generate randomGuid</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>randomGuid</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="hoeveelheidResultaten - Request 1" id="5fa221d0-e66d-49bf-acd8-39353827f9d9">
+    <con:settings/>
+    <con:config service="API testing-bron" resourcePath="/api/v1/vacatures/matches" methodName="post_zoek_matches" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="hoeveelheidResultaten - Request 1" id="3745cecb-ae41-41b5-9c92-d0c20bb66397" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request>{\r
+  "hoeveelheidResultaten" : 19,
+  "vraagObject" : {
+    "codeWerkEnDenkniveauMinimaal" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "sluitingsDatumVacature" : "2015-07-20",
+    "sollicitatiewijze" : [ {
+      "codeSollicitatiewijze" : "string"
+    } ],
+    "werkgever" : {
+      "adresHouding" : [ {
+        "codeFunctieAdres" : "string",
+        "adres" : {
+          "adresBuitenland" : {
+            "landencodeIso" : "string"
+          }
+        }
+      } ],
+      "sector" : [ {
+        "codeSbi" : 0
+      } ]
+    },
+    "sector" : {
+      "codeSbi" : 0
+    },
+    "arbeidsVoorwaarden" : {
+      "datumAanvangWerkzaamheden" : "2015-07-20",
+      "datumEindeWerkzaamheden" : "2015-07-20",
+      "salarisIndicatie" : "string"
+    },
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "beroep" : {
+      "codeBeroepsnaam" : "string",
+      "omschrijvingBeroepsnaam" : "string"
+    },
+    "werkervaring" : [ {
+      "aantalJarenWerkzaamInBeroep" : 0
+    } ],
+    "rijbewijs" : [ {
+      "codeSoortRijbewijs" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+    } ],
+    "flexibiliteit" : {
+      "codeRegiostraal" : 0,
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"
+    },
+    "werktijden" : {
+      "aantalWerkurenPerWeekMinimaal" : 0,
+      "aantalWerkurenPerWeekMaximaal" : 0,
+      "indicatieKantoortijden" : 0
+    },
+    "cursus" : [ {
+      "naamCursus" : "string"
+    } ],
+    "opleiding" : [ {
+      "codeNiveauOpleiding" : 0,
+      "indicatieDiploma" : 0,
+      "opleidingsnaam" : {
+        "codeOpleidingsnaam" : 0,
+        "omschrijvingOpleidingsnaam" : "string"
+      }
+    } ],
+    "gedragscompetentie" : [ {
+      "codeGedragscompetentie" : 0,
+      "omschrijvingGedragscompetentie" : "string",
+      "codeBeheersingGedragscompetentie" : 0
+    } ],
+    "vakvaardigheid" : [ {
+      "omschrijving" : "string"
+    } ],
+    "taalbeheersing" : [ {
+      "codeTaal" : "string",
+      "codeNiveauTaalbeheersingMondeling" : 0,
+      "codeNiveauTaalbeheersingSchriftelijk" : 0,
+      "codeNiveauTaalbeheersingLezen" : 0,
+      "codeNiveauTaalbeheersingLuisteren" : 0
+    } ]
+  }
+}</con:request>
+        <con:originalUri>http://testing-bron.westeurope.azurecontainer.io/api/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="JsonPath Count" id="73ddae75-255b-4701-bec1-f8d1406b8a17" name="Check count of 19 matches">
+          <con:configuration>
+            <path>$['matches'][*]</path>
+            <content>19</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-toParty" value=""/>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="X-VUM-viaParty" value=""/>
+          <con:entry key="X-VUM-SUWIparty" value=""/>
+          <con:entry key="X-VUM-berichtVersie" value=""/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="MatchesVacatures - Request 1" id="df02d7e8-f86f-42ca-b760-db3674a9966f">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker vacatures" resourcePath="/vacatures/matches" methodName="MatchesVacatures" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="MatchesVacatures - Request 1" id="a44ad219-31cd-448e-870e-328ace9606b7" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request>{\r
+  "callbackURL" : "http://testing-callback.westeurope.azurecontainer.io/${#TestCase#tc}_${#TestCase#randomGuid}",
+  "postcode" : "3511",
+  "straal" : 10,\r
+   "vraagObject" : {
+      "codeWerkEnDenkniveauMinimaal" : "s",
+      "indicatieLdrRegistratie" : 9,
+      "sluitingsDatumVacature" : "2022-01-06",
+      "sollicitatiewijze" : [
+         {
+            "codeSollicitatiewijze" : "s"
+         }
+      ],
+      "werkgever" : {
+         "adresHouding" : [
+            {
+               "codeFunctieAdres" : "s",
+               "adres" : {
+                  "adresBuitenland" : {
+                     "landencodeIso" : "st"
+                  }
+               }
+            }
+         ],
+         "sector" : [
+            {
+               "codeSbi" : 99999
+            }
+         ]
+      },
+      "sector" : {
+         "codeSbi" : 99999
+      },
+      "arbeidsVoorwaarden" : {
+         "datumAanvangWerkzaamheden" : "2022-01-06",
+         "datumEindeWerkzaamheden" : "2022-01-06",
+         "salarisIndicatie" : "string"
+      },
+      "contractvorm" : [
+         {
+            "codeTypeArbeidscontract" : "s",
+            "codeTypeOvereenkomst" : "st"
+         }
+      ],
+      "beroep" : {
+         "beroepsnaamGecodeerd" : {
+            "codeBeroepsnaam" : "string",
+            "omschrijvingBeroepsnaam" : "string"
+         }
+      },
+      "werkervaring" : [
+         {
+            "aantalJarenWerkzaamInBeroep" : 99
+         }
+      ],
+      "rijbewijs" : [
+         {
+            "codeSoortRijbewijs" : "str"
+         }
+      ],
+      "vervoermiddel" : [
+         {
+            "indicatieBeschikbaarVoorUitvoeringWerk" : 9,
+            "indicatieBeschikbaarVoorWoonWerkverkeer" : 9
+         }
+      ],
+      "flexibiliteit" : {
+         "codeRegiostraal" : 9,
+         "indicatieOnregelmatigWerkOfPloegendienst" : 9,
+         "datumAanvangBeschikbaarVoorWerk" : "2022-01-06",
+         "datumEindeBeschikbaarVoorWerk" : "2022-01-06"
+      },
+      "werktijden" : {
+         "aantalWerkurenPerWeekMinimaal" : 99,
+         "aantalWerkurenPerWeekMaximaal" : 99,
+         "indicatieKantoortijden" : 9
+      },
+      "cursus" : [
+         {
+            "naamCursus" : "string"
+         }
+      ],
+      "opleiding" : [
+         {
+            "codeNiveauOpleiding" : 9,
+            "indicatieDiploma" : 9,
+            "opleidingsnaam" : {
+               "opleidingsnaamGecodeerd" : {
+                  "codeOpleidingsnaam" : "9999999999",
+                  "omschrijvingOpleidingsnaam" : "string"
+               }
+            }
+         }
+      ],
+      "gedragscompetentie" : [
+         {
+            "codeGedragscompetentie" : "9999999999",
+            "omschrijvingGedragscompetentie" : "string",
+            "codeBeheersingGedragscompetentie" : 9
+         }
+      ],
+      "vakvaardigheid" : [
+         {
+            "omschrijving" : "string"
+         }
+      ],
+      "taalbeheersing" : [
+         {
+            "codeTaal" : "str",
+            "codeNiveauTaalbeheersingMondeling" : 9,
+            "codeNiveauTaalbeheersingSchriftelijk" : 9,
+            "codeNiveauTaalbeheersingLezen" : 9,
+            "codeNiveauTaalbeheersingLuisteren" : 9
+         }
+      ]
+   }
+}</con:request>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/vacatures/matches</con:originalUri>
+        <con:assertion type="JsonPath Existence Match" id="2ee73b4d-a6f2-42b1-bdb5-496c2e70c274" name="Check for existence of [vraagID]">
+          <con:configuration>
+            <path>$['vraagID']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer vraagID" id="33656cd7-934e-4b82-acd1-35ca60756a9c">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Properties vraagID" id="533223bf-ead0-44b2-b5ad-e2691ab5ee04">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>vraagID</con:name>
+          <con:value>60ecb39a-02a7-4028-ad1d-41c0f7312efe</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="delay" name="Delay" id="fe745e89-2bf7-4a01-ab0d-5a9b1f35d4d7">
+    <con:settings/>
+    <con:config>
+      <delay>1000</delay>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CB_get_post_receiver - Request 1" id="b970db51-07f5-4d24-af55-3435ab3cd08e">
+    <con:settings/>
+    <con:config service="CB API testing-callback" resourcePath="/{path}" methodName="CB_get_post_receiver" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CB_get_post_receiver - Request 1" id="1dd9ab6f-459b-4329-8e10-d079c54abbc8" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>http://testing-callback.westeurope.azurecontainer.io/pct_1-1</con:originalUri>
+        <con:assertion type="JsonPath Match" name="Match content of [vraagID]" id="b5393894-d46d-4608-ae25-adeb0205b4c3">
+          <con:configuration>
+            <path>$[0]['body']['vraagID']</path>
+            <content>${Properties vraagID#vraagID}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" name="Check for existence of [vumID]" id="a184cc58-6793-44ff-84bb-104cf06296d1">
+          <con:configuration>
+            <path>$[0]['body']['matches'][0]['vumID']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Count" id="0c57172f-8534-44ab-870e-f9bba50659a8" name="Check count of [matches]">
+          <con:configuration>
+            <path>$[*]['body']['matches'][*]</path>
+            <content>19</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="path" value="${#TestCase#tc}_${#TestCase#randomGuid}"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer vumID" id="4b4bac25-68e6-44f5-93a2-9b6d7e7e6ade">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vumID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>CB_get_post_receiver - Request 1</con:sourceStep>
+        <con:sourcePath>$[0]['body']['matches'][0]['vumID']</con:sourcePath>
+        <con:targetType>vumID</con:targetType>
+        <con:targetStep>Properties vumID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Properties vumID" id="94468d85-784b-4980-9fce-7c3c13d4e3b0">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>vumID</con:name>
+          <con:value>fxQ6acmXQstNEPnNyjn5S8FWOTpajtTlHYLtXy7On2aQ_hdf48joElOt2Q7-UV8rF7ZtRupiwVLP33hx0CQ11ZytnRHM3JIIbnfonHjPhRZN3ElS7Tnh-VrPI3frMjN1ermRFZQ5jrHFQQlzpMdGPfsdeRggEupHW-RpW3LiOHrZZB0xoMDLXhEz9Zyxb1J9MKLwOCBXyxQCeVj028Bstu871IcJ_ukLiBAYgTkQKe5c0qemrm9GaVLWnRJPdfIKkkmI-InQ9O2S8RIJU-JWC0M2ahE</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getVacature - Request 1" id="1d3ab249-09da-4480-af87-6ea8e55f51ed">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker vacatures" resourcePath="/vacatures/{vumID}" methodName="getVacature" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getVacature - Request 1" id="31377781-622b-4a32-b4e9-53f8c93935de" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/vacatures/</con:originalUri>
+        <con:assertion type="JsonPath Match" name="Match content of [bronID]" id="87d35adc-882e-4970-902b-0d16afad23ec">
+          <con:configuration>
+            <path>$['bronID']</path>
+            <content>"e7b73460-0bb2-4713-8557-e191d74f045d"</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="42b6b049-c6b8-43e0-8765-5899403a13c9" name="Check for existence of [idVacature]">
+          <con:configuration>
+            <path>$['vacature']['idVacature']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="vumID" value="${Properties vumID#vumID}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+          <con:entry>vumID</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>tc</con:name>
+      <con:value>pct_2-8</con:value>
+    </con:property>
+    <con:property>
+      <con:name>randomGuid</con:name>
+      <con:value>7519c672-b46a-48ab-9570-a7187ddc37c8</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testCase>

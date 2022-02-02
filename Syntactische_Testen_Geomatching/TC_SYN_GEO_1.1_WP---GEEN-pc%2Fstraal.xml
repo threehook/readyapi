@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="a84de13c-52fd-48c2-94d6-3eff16659ecb" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SYN_GEO_1.1_WP - GEEN pc/straal" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8f6ac014-ec98-4efd-85ef-399043504966fileName">TC_SYN_GEO_1.1_WP---GEEN-pc%2Fstraal</con:setting>
+    <con:setting id="a84de13c-52fd-48c2-94d6-3eff16659ecbfileName">TC_SYN_GEO_1.1_WP---GEEN-pc%2Fstraal</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="MatcheswerkzoekendeProfielen - Request 1" id="f77c4c70-f522-4cde-9190-1e3584918f7c">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker werkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatcheswerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="MatcheswerkzoekendeProfielen - Request 1" id="b755a096-32e0-4a6a-b3bc-8707558238fb" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request>{\r
+  "callbackURL" : "http://testing-callback.westeurope.azurecontainer.io/${#TestCase#tc}",
+  "vraagObject" : {\r
+  }\r
+}</con:request>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="bf82be8d-4786-4e20-adac-684e0b8f22da" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>404</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="a289c6a6-58d3-484c-913f-1e591f7a0c5f" name="Smart Assertion">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>$['code']</con:path>
+              <con:element>code</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>5</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>true</con:numberType>
+              <con:expectedDataType>2</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['message']</con:path>
+              <con:element>message</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>requested zipcode not found</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['details'][0]['@type']</con:path>
+              <con:element>@type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>type.googleapis.com/grpcerr.ErrDetails</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['details'][0]['err_type']</con:path>
+              <con:element>err_type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>ERROR_TYPE_NOT_FOUND</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{
+ "code": 5,
+ "message": "requested zipcode not found",
+ "details": [
+  {
+   "@type": "type.googleapis.com/grpcerr.ErrDetails",
+   "err_type": "ERROR_TYPE_NOT_FOUND"
+  }
+ ]
+}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="X-VUM-viaParty" value="${Data Source#X-VUM-viaParty}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/werkzoekendeProfielen/{idWerkzoekende}" path="/werkzoekendeProfielen/{idWerkzoekende}" id="102e53bd-c448-4b02-8346-5ae4cbddb474" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="102e53bd-c448-4b02-8346-5ae4cbddb474fileName">%2FwerkzoekendeProfielen%2F%7BidWerkzoekende%7D</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>idWerkzoekende</con:name>
+      <con:value/>
+      <con:style>TEMPLATE</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="get_zoek_matches" id="cff40af5-57c8-42e3-82bd-b0ba565a1915" method="GET">
+    <con:description>Detail aanvraag zoekprofiel</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "idWerkzoekende" : "string",
+  "indicatieLdrRegistratie" : 0,
+  "indicatieBeschikbaarheidContactgegevens" : 0,
+  "persoonlijkePresentatie" : "string",
+  "voorkeursland" : [ {
+    "landencodeIso" : "string"
+  } ],
+  "vervoermiddel" : [ {
+    "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+    "indicatieBeschikbaarVoorWoonWerkverkeer" : 0,
+    "codeVervoermiddel" : 0
+  } ],
+  "contractvorm" : [ {
+    "codeTypeArbeidscontract" : "string",
+    "codeTypeOvereenkomst" : "string"
+  } ],
+  "emailadres" : [ "string" ],
+  "webadres" : [ {
+    "codeWebadres" : 0,
+    "url" : "string"
+  } ],
+  "telefoonnummer" : [ "string" ],
+  "contactpersoon" : [ {
+    "naamContactpersoonAfdeling" : "string",
+    "telefoonnummer" : "string",
+    "emailadres" : "string"
+  } ],
+  "sector" : [ {
+    "codeSbi" : 0
+  } ],
+  "bemiddelingsberoep" : [ {
+    "codeBeroepsnaam" : "string",
+    "omschrijvingBeroepsnaam" : "string",
+    "naamBeroepOngecodeerd" : "string"
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="91a06d72-e97e-406b-a4f1-764400a82e27" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="idWerkzoekende" value=""/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+</con:resource>

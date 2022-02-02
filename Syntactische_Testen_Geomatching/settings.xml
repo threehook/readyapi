@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="a8b5e316-ade8-44be-9ef3-2faf4261672c" name="Syntactische_Testen_Geomatching" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e3b94357-76f1-4ba9-a013-6a698276c688fileName">Syntactische_Testen_Geomatching</con:setting>
+    <con:setting id="a8b5e316-ade8-44be-9ef3-2faf4261672cfileName">Syntactische_Testen_Geomatching</con:setting>
+  </con:settings>
+  <con:runType>PARALLELL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

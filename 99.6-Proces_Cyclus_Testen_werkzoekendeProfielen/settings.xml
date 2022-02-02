@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="04948b53-0c9e-4ed4-a4c2-9e963a3c8252" name="99.6 Proces_Cyclus_Testen_werkzoekendeProfielen" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>Proces Cyclus Tests</con:description>
+  <con:settings>
+    <con:setting id="1205c883-2065-41ea-891f-6fd20c12016cfileName">99.4-Proces_Cyclus_Testen_werkzoekendeProfielen</con:setting>
+    <con:setting id="04948b53-0c9e-4ed4-a4c2-9e963a3c8252fileName">99.6-Proces_Cyclus_Testen_werkzoekendeProfielen</con:setting>
+  </con:settings>
+  <con:runType>PARALLELL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

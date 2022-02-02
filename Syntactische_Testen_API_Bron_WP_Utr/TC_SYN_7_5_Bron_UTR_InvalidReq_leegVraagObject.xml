@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="cd3d0c5f-8f5a-40ed-be69-29523f56b619" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SYN_7_5_Bron_UTR_InvalidReq_leegVraagObject" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="cd3d0c5f-8f5a-40ed-be69-29523f56b619fileName">TC_SYN_7_5_Bron_UTR_InvalidReq_leegVraagObject</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="leeg vraagObject - response 200" id="b7a38cb1-b92c-45d0-b305-58d4c70912ec">
+    <con:settings/>
+    <con:config service="99.6 VUM API BRON Ams WerkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatchesWerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="leeg vraagObject - response 200" id="a86d716d-33e6-401a-ba15-b5c4556b89d5" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.example.com/v1</con:endpoint>
+        <con:request>{
+  "vraagObject" : {
+  }
+}</con:request>
+        <con:originalUri>http://testing-bron.westeurope.azurecontainer.io/api/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1af80c6b-c333-477e-90d3-5514bb814adf" name="Valid HTTP Status Codes" disabled="true">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="583fc281-38f5-4423-a5b9-ea65105c5828" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="GroovyScriptAssertion" id="d9d99e9b-ab0e-4467-aa79-e873b20c8c30" name="Script Assertion">
+          <con:configuration>
+            <scriptText>log.info("me response " + messageExchange.response);
+def Response = messageExchange.response
+log.info("me rawResponseData " + messageExchange.rawResponseData);</scriptText>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Count" id="240c117b-6e90-4292-a904-525635bb98bc" name="JSONPath Count">
+          <con:configuration>
+            <path>$['matches'][0]['idWerkzoekende']</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="6dc281be-3036-46ac-bb70-eb5de2b1e58b" name="JSONPath Existence Match">
+          <con:configuration>
+            <path>$['matches'][0]['idWerkzoekende']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="SwaggerComplianceAssertion" id="9635e374-9c2a-4234-8ecd-219099cd71d1" name="Swagger Compliance Assertion" disabled="true">
+          <con:configuration>
+            <swaggerUrl>http://testing-bron-2.westeurope.azurecontainer.io/api/v1/swagger.json</swaggerUrl>
+            <strictMode>true</strictMode>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="19aafcc7-3d12-41ca-b13f-a85240d711fe" name="receive 200 json response">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Metadata</con:mode>
+            <con:elements>
+              <con:path>$['Headers']['Server']</con:path>
+              <con:element>Server</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>nginx/1.21.1</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['Connection']</con:path>
+              <con:element>Connection</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>keep-alive</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['#status#']</con:path>
+              <con:element>#status#</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>HTTP/1.1 200 OK</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['Content-Length']</con:path>
+              <con:element>Content-Length</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>11629</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['Date']</con:path>
+              <con:element>Date</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Wed, 01 Dec 2021 07:40:54 GMT</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['Content-Type']</con:path>
+              <con:element>Content-Type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>application/json</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{"Headers":{"Server":"nginx/1.21.1","Connection":"keep-alive","#status#":"HTTP/1.1 200 OK","Content-Length":"11629","Date":"Wed, 01 Dec 2021 07:40:54 GMT","Content-Type":"application/json"}}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+          <con:entry>X-VUM-SUWIparty</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>datum</con:name>
+      <con:value>2015-07-20</con:value>
+    </con:property>
+    <con:property>
+      <con:name>response</con:name>
+      <con:value>{
+  "maximumAantalResultatenBereikt" : true,
+  "matches" : [ {
+    "idWerkzoekende" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "indicatieBeschikbaarheidContactgegevens" : 0,
+    "persoonlijkePresentatie" : "string",
+    "voorkeursland" : [ {
+      "landencodeIso" : "string"
+    } ],
+    "eisAanWerk" : {
+      "indicatieAanpassingWerkomgeving" : 0,
+      "indicatieBegeleiding" : 0,
+      "indicatieWerkvariatie" : 0
+    },
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0,
+      "codeVervoermiddel" : 0
+    } ],
+    "mobiliteit" : {
+      "bemiddelingspostcode" : "string",
+      "maximaleReisafstand" : 0,
+      "maximaleReistijd" : 0
+    },
+    "flexibiliteit" : {
+      "codeRegiostraal" : 0,
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"
+    },
+    "werktijden" : {
+      "aantalWerkurenPerWeekMinimaal" : 0,
+      "aantalWerkurenPerWeekMaximaal" : 0,
+      "indicatieKantoortijden" : 0
+    },
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "arbeidsmarktkwalificatie" : {
+      "codeWerkEnDenkniveauWerkzoekende" : 0,
+      "vakvaardigheid" : [ {
+        "omschrijving" : "string"
+      } ],
+      "taalbeheersing" : [ {
+        "codeTaal" : "string",
+        "codeNiveauTaalbeheersingMondeling" : 0,
+        "codeNiveauTaalbeheersingSchriftelijk" : 0,
+        "codeNiveauTaalbeheersingLezen" : 0,
+        "codeNiveauTaalbeheersingLuisteren" : 0
+      } ],
+      "gedragscompetentie" : [ {
+        "codeGedragscompetentie" : 0,
+        "omschrijvingGedragscompetentie" : "string",
+        "codeBeheersingGedragscompetentie" : 0
+      } ],
+      "interesse" : [ {
+        "naamInteresse" : "string"
+      } ],
+      "rijbewijs" : [ {
+        "codeSoortRijbewijs" : "string"
+      } ],
+      "cursus" : [ {
+        "naamCursus" : "string",
+        "datumCertificaat" : "2015-07-20",
+        "datumAanvangVolgenCursus" : "2015-07-20",
+        "datumEindeVolgenCursus" : "2015-07-20",
+        "naamOpleidingsinstituut" : "string"
+      } ],
+      "opleiding" : [ {
+        "codeNiveauOpleiding" : 0,
+        "indicatieDiploma" : 0,
+        "datumDiploma" : "2015-07-20",
+        "opleidingsnaam" : {
+          "codeOpleidingsnaam" : 0,
+          "omschrijvingOpleidingsnaam" : "string"
+        },
+        "datumAanvangVolgenOpleiding" : "2015-07-20",
+        "datumEindeVolgenOpleiding" : "2015-07-20",
+        "codeStatusOpleiding" : 0,
+        "naamOpleidingsinstituut" : "string"
+      } ],
+      "werkervaring" : [ {
+        "datumAanvangWerkzaamheden" : "2015-07-20",
+        "datumEindeWerkzaamheden" : "2015-07-20",
+        "naamOrganisatie" : "string",
+        "beroep" : {
+          "codeBeroepsnaam" : "string",
+          "omschrijvingBeroepsnaam" : "string"
+        },
+        "toelichtingWerkervaring" : "string"
+      } ]
+    },
+    "emailadres" : [ "string" ],
+    "webadres" : [ {
+      "codeWebadres" : 0,
+      "url" : "string"
+    } ],
+    "telefoonnummer" : [ "string" ],
+    "contactpersoon" : [ {
+      "naamContactpersoonAfdeling" : "string",
+      "telefoonnummer" : "string",
+      "emailadres" : "string"
+    } ],
+    "sector" : [ {
+      "codeSbi" : 0
+    } ],
+    "bemiddelingsberoep" : [ {
+      "codeBeroepsnaam" : "string",
+      "omschrijvingBeroepsnaam" : "string"
+    } ]
+  } ]
+}</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

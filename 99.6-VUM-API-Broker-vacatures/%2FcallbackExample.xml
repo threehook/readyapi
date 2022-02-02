@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/callbackExample" path="/callbackExample" id="10c82ff8-7eaf-4232-8589-5773e4f463ac" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="10c82ff8-7eaf-4232-8589-5773e4f463acfileName">%2FcallbackExample</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="callbackExample" id="98b4d05d-bc0b-4ecb-96cb-78e897e2c47f" method="POST">
+    <con:description>Voorbeeld voor de callback methode, alleen om te laten zien hoe de echte Callback er uit ziet!</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>X-VUM-berichtVersie</con:name>
+        <con:style>HEADER</con:style>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-VUM-toParty</con:name>
+        <con:style>HEADER</con:style>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-viaParty</con:name>
+        <con:style>HEADER</con:style>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-VUM-vraagID</con:name>
+        <con:style>HEADER</con:style>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "vraagID" : "string",
+  "maximumAantalResultatenBereikt" : true,
+  "matches" : [ {
+    "vumID" : "string",
+    "codeWerkEnDenkniveauMinimaal" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "sluitingsDatumVacature" : "2015-07-20",
+    "sollicitatiewijze" : [ {
+      "codeSollicitatiewijze" : "string"
+    } ],
+    "werkgever" : {
+      "adresHouding" : [ {
+        "codeFunctieAdres" : "string",
+        "adres" : {
+          "adresBuitenland" : {
+            "landencodeIso" : "string"
+          }
+        }
+      } ],
+      "sector" : [ {
+        "codeSbi" : 0
+      } ]
+    },
+    "sector" : {
+      "codeSbi" : 0
+    },
+    "arbeidsVoorwaarden" : {
+      "datumAanvangWerkzaamheden" : "2015-07-20",
+      "datumEindeWerkzaamheden" : "2015-07-20",
+      "salarisIndicatie" : "string"
+    },
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "beroep" : {
+      "beroepsnaamGecodeerd" : {
+        "codeBeroepsnaam" : "string",
+        "omschrijvingBeroepsnaam" : "string"
+      }
+    },
+    "werkervaring" : [ {
+      "aantalJarenWerkzaamInBeroep" : 0
+    } ],
+    "rijbewijs" : [ {
+      "codeSoortRijbewijs" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+    } ],
+    "flexibiliteit" : {
+      "codeRegiostraal" : 0,
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"
+    },
+    "werktijden" : {
+      "aantalWerkurenPerWeekMinimaal" : 0,
+      "aantalWerkurenPerWeekMaximaal" : 0,
+      "indicatieKantoortijden" : 0
+    },
+    "cursus" : [ {
+      "naamCursus" : "string"
+    } ],
+    "opleiding" : [ {
+      "codeNiveauOpleiding" : 0,
+      "indicatieDiploma" : 0,
+      "opleidingsnaam" : {
+        "opleidingsnaamGecodeerd" : {
+          "codeOpleidingsnaam" : "9999999999",
+          "omschrijvingOpleidingsnaam" : "string"
+        }
+      }
+    } ],
+    "gedragscompetentie" : [ {
+      "codeGedragscompetentie" : "9999999999",
+      "omschrijvingGedragscompetentie" : "string",
+      "codeBeheersingGedragscompetentie" : 0
+    } ],
+    "vakvaardigheid" : [ {
+      "omschrijving" : "string"
+    } ],
+    "taalbeheersing" : [ {
+      "codeTaal" : "string",
+      "codeNiveauTaalbeheersingMondeling" : 0,
+      "codeNiveauTaalbeheersingSchriftelijk" : 0,
+      "codeNiveauTaalbeheersingLezen" : 0,
+      "codeNiveauTaalbeheersingLuisteren" : 0
+    } ]
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="106b1836-6fd9-4b71-b5eb-7b1f9e52cdc5" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+      <con:request>{\r
+  "vraagID" : "string",\r
+  "maximumAantalResultatenBereikt" : true,\r
+  "matches" : [ {\r
+    "vumID" : "string",\r
+    "codeWerkEnDenkniveauMinimaal" : "string",\r
+    "indicatieLdrRegistratie" : 0,\r
+    "sluitingsDatumVacature" : "2015-07-20",\r
+    "sollicitatiewijze" : [ {\r
+      "codeSollicitatiewijze" : "string"\r
+    } ],\r
+    "werkgever" : {\r
+      "adresHouding" : [ {\r
+        "codeFunctieAdres" : "string",\r
+        "adres" : {\r
+          "adresBuitenland" : {\r
+            "landencodeIso" : "string"\r
+          }\r
+        }\r
+      } ],\r
+      "sector" : [ {\r
+        "codeSbi" : 0\r
+      } ]\r
+    },\r
+    "sector" : {\r
+      "codeSbi" : 0\r
+    },\r
+    "arbeidsVoorwaarden" : {\r
+      "datumAanvangWerkzaamheden" : "2015-07-20",\r
+      "datumEindeWerkzaamheden" : "2015-07-20",\r
+      "salarisIndicatie" : "string"\r
+    },\r
+    "contractvorm" : [ {\r
+      "codeTypeArbeidscontract" : "string",\r
+      "codeTypeOvereenkomst" : "string"\r
+    } ],\r
+    "beroep" : {\r
+      "beroepsnaamGecodeerd" : {\r
+        "codeBeroepsnaam" : "string",\r
+        "omschrijvingBeroepsnaam" : "string"\r
+      }\r
+    },\r
+    "werkervaring" : [ {\r
+      "aantalJarenWerkzaamInBeroep" : 0\r
+    } ],\r
+    "rijbewijs" : [ {\r
+      "codeSoortRijbewijs" : "string"\r
+    } ],\r
+    "vervoermiddel" : [ {\r
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,\r
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0\r
+    } ],\r
+    "flexibiliteit" : {\r
+      "codeRegiostraal" : 0,\r
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,\r
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",\r
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"\r
+    },\r
+    "werktijden" : {\r
+      "aantalWerkurenPerWeekMinimaal" : 0,\r
+      "aantalWerkurenPerWeekMaximaal" : 0,\r
+      "indicatieKantoortijden" : 0\r
+    },\r
+    "cursus" : [ {\r
+      "naamCursus" : "string"\r
+    } ],\r
+    "opleiding" : [ {\r
+      "codeNiveauOpleiding" : 0,\r
+      "indicatieDiploma" : 0,\r
+      "opleidingsnaam" : {\r
+        "opleidingsnaamGecodeerd" : {\r
+          "codeOpleidingsnaam" : "9999999999",\r
+          "omschrijvingOpleidingsnaam" : "string"\r
+        }\r
+      }\r
+    } ],\r
+    "gedragscompetentie" : [ {\r
+      "codeGedragscompetentie" : "9999999999",\r
+      "omschrijvingGedragscompetentie" : "string",\r
+      "codeBeheersingGedragscompetentie" : 0\r
+    } ],\r
+    "vakvaardigheid" : [ {\r
+      "omschrijving" : "string"\r
+    } ],\r
+    "taalbeheersing" : [ {\r
+      "codeTaal" : "string",\r
+      "codeNiveauTaalbeheersingMondeling" : 0,\r
+      "codeNiveauTaalbeheersingSchriftelijk" : 0,\r
+      "codeNiveauTaalbeheersingLezen" : 0,\r
+      "codeNiveauTaalbeheersingLuisteren" : 0\r
+    } ]\r
+  } ]\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

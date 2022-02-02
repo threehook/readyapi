@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/werkzoekendeProfielen/clear" path="/werkzoekendeProfielen/clear" id="7d8ceaf6-8f76-40e5-89dc-5fdc4f265254" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7d8ceaf6-8f76-40e5-89dc-5fdc4f265254fileName">%2FwerkzoekendeProfielen%2Fclear</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="post_clear_matches" id="91340302-1072-4735-8a6c-ecf8060c3e15" method="POST">
+    <con:description>Reset matches voor bepaalde body</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>X-VUM-berichtVersie</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-fromParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-toParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-viaParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-SUWIparty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:dataType>boolean</con:dataType>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "indicatieLdrRegistratie" : 0,
+  "indicatieBeschikbaarheidContactgegevens" : 0,
+  "voorkeursland" : [ {
+    "landencodeIso" : "string"
+  } ],
+  "vervoermiddel" : [ {
+    "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+    "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+  } ],
+  "contractvorm" : [ {
+    "codeTypeArbeidscontract" : "string",
+    "codeTypeOvereenkomst" : "string"
+  } ],
+  "sector" : [ {
+    "codeSbi" : 0
+  } ],
+  "bemiddelingsberoep" : [ {
+    "codeBeroepsnaam" : "string",
+    "omschrijvingBeroepsnaam" : "string",
+    "naamBeroepOngecodeerd" : "string"
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "idWerkzoekende" : "string",
+  "indicatieLdrRegistratie" : 0,
+  "indicatieBeschikbaarheidContactgegevens" : 0,
+  "persoonlijkePresentatie" : "string",
+  "voorkeursland" : [ {
+    "landencodeIso" : "string"
+  } ],
+  "vervoermiddel" : [ {
+    "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+    "indicatieBeschikbaarVoorWoonWerkverkeer" : 0,
+    "codeVervoermiddel" : 0
+  } ],
+  "contractvorm" : [ {
+    "codeTypeArbeidscontract" : "string",
+    "codeTypeOvereenkomst" : "string"
+  } ],
+  "emailadres" : [ "string" ],
+  "webadres" : [ {
+    "codeWebadres" : 0,
+    "url" : "string"
+  } ],
+  "telefoonnummer" : [ "string" ],
+  "contactpersoon" : [ {
+    "naamContactpersoonAfdeling" : "string",
+    "telefoonnummer" : "string",
+    "emailadres" : "string"
+  } ],
+  "sector" : [ {
+    "codeSbi" : 0
+  } ],
+  "bemiddelingsberoep" : [ {
+    "codeBeroepsnaam" : "string",
+    "omschrijvingBeroepsnaam" : "string",
+    "naamBeroepOngecodeerd" : "string"
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="673a2b86-4325-4b45-82da-6cbef794e78e" mediaType="application/json" postQueryString="false">
+      <con:settings/>
+      <con:endpoint>http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "indicatieLdrRegistratie" : 0,\r
+  "indicatieBeschikbaarheidContactgegevens" : 0,\r
+  "voorkeursland" : [ {\r
+    "landencodeIso" : "string"\r
+  } ],\r
+  "vervoermiddel" : [ {\r
+    "indicatieBeschikbaarVoorUitvoeringWerk" : 0,\r
+    "indicatieBeschikbaarVoorWoonWerkverkeer" : 0\r
+  } ],\r
+  "contractvorm" : [ {\r
+    "codeTypeArbeidscontract" : "string",\r
+    "codeTypeOvereenkomst" : "string"\r
+  } ],\r
+  "sector" : [ {\r
+    "codeSbi" : 0\r
+  } ],\r
+  "bemiddelingsberoep" : [ {\r
+    "codeBeroepsnaam" : "string",\r
+    "omschrijvingBeroepsnaam" : "string",\r
+    "naamBeroepOngecodeerd" : "string"\r
+  } ]\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="X-VUM-toParty" value=""/>
+        <con:entry key="X-VUM-fromParty" value=""/>
+        <con:entry key="X-VUM-viaParty" value=""/>
+        <con:entry key="X-VUM-SUWIparty" value=""/>
+        <con:entry key="X-VUM-berichtVersie" value=""/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+</con:resource>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/utility/setResponseWithHash" path="/utility/setResponseWithHash" id="abd72f51-851f-4dc5-b995-4ec1091b5bd8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="abd72f51-851f-4dc5-b995-4ec1091b5bd8fileName">%2Futility%2FsetResponseWithHash</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="post_matches_operations_with_hash" id="620fa7bb-d888-4328-bc63-3f3196ff952d" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="95d680a1-3555-4b58-adfa-8048c14edbab" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="delete_matches_operations_with_hash" id="04bf9013-c164-4ddb-9450-507c2e23f0ea" method="DELETE">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="915c2820-b270-4f89-9076-ac4277d9fbde" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

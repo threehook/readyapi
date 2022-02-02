@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/utility/setResponse" path="/utility/setResponse" id="ad2d2bc3-d620-494f-b6ce-1f5e1de42bcb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ad2d2bc3-d620-494f-b6ce-1f5e1de42bcbfileName">%2Futility%2FsetResponse</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="post_matches_operations" id="9bd49c4f-af18-474b-8e66-72dac9a93de6" method="POST">
+    <con:description>Matches to be returned for specific request</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "request" : {
+    "vraagObject" : { }
+  },
+  "response" : [ { } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="53276f47-a6ac-4038-a296-c2a7dc24c15c" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "request" : {\r
+    "vraagObject" : { }\r
+  },\r
+  "response" : [ { } ]\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="delete_matches_operations" id="8cbb427c-7e6e-4f2a-82f5-19cbc0038c73" method="DELETE">
+    <con:description>Delete set answer for certain matches call</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "vraagObject" : { }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="c84aab58-8bcf-4d61-8f75-0551d8de5d21" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "vraagObject" : { }\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

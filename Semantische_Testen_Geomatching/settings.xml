@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="af03e27a-6d5c-40ee-97b8-0b3998f53f9a" name="Semantische_Testen_Geomatching" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="af03e27a-6d5c-40ee-97b8-0b3998f53f9afileName">Semantische_Testen_Geomatching</con:setting>
+  </con:settings>
+  <con:runType>PARALLELL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="6052a768-00b8-495b-83bd-a6cc636db3af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

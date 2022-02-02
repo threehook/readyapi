@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="73f6e3b4-e0fc-45fb-acc8-7b27a2c7131c" name="Semantische_Testen_API_Bron_WP_Utr" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d103f335-2916-49fa-99e4-4c8d8b713b78fileName">Semantische_Testen_WP_API_Bron_AMS</con:setting>
+    <con:setting id="73f6e3b4-e0fc-45fb-acc8-7b27a2c7131cfileName">Semantische_Testen_API_Bron_WP_Utr</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

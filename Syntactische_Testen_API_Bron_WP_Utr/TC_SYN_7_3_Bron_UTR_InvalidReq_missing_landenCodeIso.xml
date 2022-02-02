@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="288fc04c-836f-421c-998a-9dc3c4fa3b2f" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SYN_7_3_Bron_UTR_InvalidReq_missing_landenCodeIso" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ef9f0969-21d9-40e7-a3da-c14f21e88571fileName">invalid-requests-aan-Bron</con:setting>
+    <con:setting id="288fc04c-836f-421c-998a-9dc3c4fa3b2ffileName">TC_SYN_7_3_Bron_UTR_InvalidReq_missing_landenCodeIso</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="landencodeIso ontbreekt" id="4462318d-a6f3-41d5-b37a-a3b9fa4c588a">
+    <con:settings/>
+    <con:config service="99.6 VUM API BRON Ams WerkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatchesWerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="landencodeIso ontbreekt" id="a86d716d-33e6-401a-ba15-b5c4556b89d5" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.example.com/v1</con:endpoint>
+        <con:request>{
+  "vraagObject" : {
+    "indicatieLdrRegistratie" : 0,
+    "indicatieBeschikbaarheidContactgegevens" : 0,
+    "voorkeursland" : [ {
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+    } ],
+    "mobiliteit" : {
+      "bemiddelingspostcode" : "string",
+      "maximaleReisafstand" : 0,
+      "maximaleReistijd" : 0
+    },
+    "flexibiliteit" : {
+      "codeRegiostraal" : 0,
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"
+    },
+    "werktijden" : {
+      "aantalWerkurenPerWeekMinimaal" : 0,
+      "aantalWerkurenPerWeekMaximaal" : 0,
+      "indicatieKantoortijden" : 0
+    },
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "s",
+      "codeTypeOvereenkomst" : "st"
+    } ],
+    "arbeidsmarktkwalificatie" : {
+      "codeWerkEnDenkniveauWerkzoekende" : 0,
+      "vakvaardigheid" : [ {
+        "omschrijving" : "string"
+      } ],
+      "taalbeheersing" : [ {
+        "codeTaal" : "str",
+        "codeNiveauTaalbeheersingMondeling" : 0,
+        "codeNiveauTaalbeheersingSchriftelijk" : 0,
+        "codeNiveauTaalbeheersingLezen" : 0,
+        "codeNiveauTaalbeheersingLuisteren" : 0
+      } ],
+      "gedragscompetentie" : [ {
+        "codeGedragscompetentie" : 0,
+        "omschrijvingGedragscompetentie" : "string",
+        "codeBeheersingGedragscompetentie" : 0
+      } ],
+      "rijbewijs" : [ {
+        "codeSoortRijbewijs" : "str"
+      } ],
+      "cursus" : [ {
+        "naamCursus" : "string",
+        "datumCertificaat" : "2015-07-20"
+      } ],
+      "opleiding" : [ {
+        "codeNiveauOpleiding" : 0,
+        "indicatieDiploma" : 0,
+        "datumDiploma" : "2015-07-20",
+        "opleidingsnaam" : {
+          "codeOpleidingsnaam" : "string",
+          "omschrijvingOpleidingsnaam" : "string"
+        }
+      } ],
+      "werkervaring" : [ {
+        "datumAanvangWerkzaamheden" : "2015-07-20",
+        "datumEindeWerkzaamheden" : "2015-07-20",
+        "naamOrganisatie" : "string",
+        "beroep" : {
+          "codeBeroepsnaam" : "string",
+          "omschrijvingBeroepsnaam" : "string"
+        }
+      } ]
+    },
+    "sector" : [ {
+      "codeSbi" : 0
+    } ],
+    "bemiddelingsberoep" : [ {
+      "codeBeroepsnaam" : "string",
+      "omschrijvingBeroepsnaam" : "string"
+    } ]
+  }
+}</con:request>
+        <con:originalUri>http://testing-bron.westeurope.azurecontainer.io/api/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1af80c6b-c333-477e-90d3-5514bb814adf" name="Valid HTTP Status Codes" disabled="true">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="SwaggerComplianceAssertion" id="9635e374-9c2a-4234-8ecd-219099cd71d1" name="Swagger Compliance Assertion" disabled="true">
+          <con:configuration>
+            <swaggerUrl>http://testing-bron-2.westeurope.azurecontainer.io/api/v1/swagger.json</swaggerUrl>
+            <strictMode>true</strictMode>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="aa6b9f57-2a8f-4fd3-8b79-fb5ded1a1dc5" name="assert landencodeiso is required">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>$['errors']['vraagObject.voorkeursland.0.landencodeIso']</con:path>
+              <con:element>vraagObject.voorkeursland.0.landencodeIso</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>'landencodeIso' is a required property</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['message']</con:path>
+              <con:element>message</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>Input payload validation failed</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{"errors":{"vraagObject.voorkeursland.0.landencodeIso":"'landencodeIso' is a required property"},"message":"Input payload validation failed"}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+          <con:entry>X-VUM-SUWIparty</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>datum</con:name>
+      <con:value>2015-07-20</con:value>
+    </con:property>
+    <con:property>
+      <con:name>response</con:name>
+      <con:value>{
+  "maximumAantalResultatenBereikt" : true,
+  "matches" : [ {
+    "idWerkzoekende" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "indicatieBeschikbaarheidContactgegevens" : 0,
+    "persoonlijkePresentatie" : "string",
+    "voorkeursland" : [ {
+      "landencodeIso" : "string"
+    } ],
+    "eisAanWerk" : {
+      "indicatieAanpassingWerkomgeving" : 0,
+      "indicatieBegeleiding" : 0,
+      "indicatieWerkvariatie" : 0
+    },
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0,
+      "codeVervoermiddel" : 0
+    } ],
+    "mobiliteit" : {
+      "bemiddelingspostcode" : "string",
+      "maximaleReisafstand" : 0,
+      "maximaleReistijd" : 0
+    },
+    "flexibiliteit" : {
+      "codeRegiostraal" : 0,
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"
+    },
+    "werktijden" : {
+      "aantalWerkurenPerWeekMinimaal" : 0,
+      "aantalWerkurenPerWeekMaximaal" : 0,
+      "indicatieKantoortijden" : 0
+    },
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "arbeidsmarktkwalificatie" : {
+      "codeWerkEnDenkniveauWerkzoekende" : 0,
+      "vakvaardigheid" : [ {
+        "omschrijving" : "string"
+      } ],
+      "taalbeheersing" : [ {
+        "codeTaal" : "string",
+        "codeNiveauTaalbeheersingMondeling" : 0,
+        "codeNiveauTaalbeheersingSchriftelijk" : 0,
+        "codeNiveauTaalbeheersingLezen" : 0,
+        "codeNiveauTaalbeheersingLuisteren" : 0
+      } ],
+      "gedragscompetentie" : [ {
+        "codeGedragscompetentie" : 0,
+        "omschrijvingGedragscompetentie" : "string",
+        "codeBeheersingGedragscompetentie" : 0
+      } ],
+      "interesse" : [ {
+        "naamInteresse" : "string"
+      } ],
+      "rijbewijs" : [ {
+        "codeSoortRijbewijs" : "string"
+      } ],
+      "cursus" : [ {
+        "naamCursus" : "string",
+        "datumCertificaat" : "2015-07-20",
+        "datumAanvangVolgenCursus" : "2015-07-20",
+        "datumEindeVolgenCursus" : "2015-07-20",
+        "naamOpleidingsinstituut" : "string"
+      } ],
+      "opleiding" : [ {
+        "codeNiveauOpleiding" : 0,
+        "indicatieDiploma" : 0,
+        "datumDiploma" : "2015-07-20",
+        "opleidingsnaam" : {
+          "codeOpleidingsnaam" : 0,
+          "omschrijvingOpleidingsnaam" : "string"
+        },
+        "datumAanvangVolgenOpleiding" : "2015-07-20",
+        "datumEindeVolgenOpleiding" : "2015-07-20",
+        "codeStatusOpleiding" : 0,
+        "naamOpleidingsinstituut" : "string"
+      } ],
+      "werkervaring" : [ {
+        "datumAanvangWerkzaamheden" : "2015-07-20",
+        "datumEindeWerkzaamheden" : "2015-07-20",
+        "naamOrganisatie" : "string",
+        "beroep" : {
+          "codeBeroepsnaam" : "string",
+          "omschrijvingBeroepsnaam" : "string"
+        },
+        "toelichtingWerkervaring" : "string"
+      } ]
+    },
+    "emailadres" : [ "string" ],
+    "webadres" : [ {
+      "codeWebadres" : 0,
+      "url" : "string"
+    } ],
+    "telefoonnummer" : [ "string" ],
+    "contactpersoon" : [ {
+      "naamContactpersoonAfdeling" : "string",
+      "telefoonnummer" : "string",
+      "emailadres" : "string"
+    } ],
+    "sector" : [ {
+      "codeSbi" : 0
+    } ],
+    "bemiddelingsberoep" : [ {
+      "codeBeroepsnaam" : "string",
+      "omschrijvingBeroepsnaam" : "string"
+    } ]
+  } ]
+}</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

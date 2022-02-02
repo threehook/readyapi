@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="de5367bf-d931-4fa6-b152-4dd41a035ffa" name="Syntactische_Testen_API_Bron_WP_Utr" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="3aca032a-9fcc-43f9-aa06-48e24b7b7d43fileName">Syntactische_Testen_wp_Utr_Bron</con:setting>
+    <con:setting id="de5367bf-d931-4fa6-b152-4dd41a035ffafileName">Syntactische_Testen_API_Bron_WP_Utr</con:setting>
+  </con:settings>
+  <con:runType>PARALLELL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

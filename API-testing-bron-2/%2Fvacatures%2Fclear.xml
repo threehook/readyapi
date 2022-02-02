@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/vacatures/clear" path="/vacatures/clear" id="bacd26f2-c6bb-40a3-80e8-9ab9b79374a4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="bacd26f2-c6bb-40a3-80e8-9ab9b79374a4fileName">%2Fvacatures%2Fclear</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="post_clear_matches" id="01f5ffb9-8110-4393-9436-cb913edc249f" method="POST">
+    <con:description>Reset matches voor bepaalde body</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>X-VUM-berichtVersie</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-fromParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-toParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-viaParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-SUWIparty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:dataType>boolean</con:dataType>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "codeWerkEnDenkniveauMinimaal" : "string",
+  "indicatieLdrRegistratie" : 0,
+  "sluitingsDatumVacature" : "2015-07-20",
+  "sollicitatiewijze" : [ {
+    "codeSollicitatieWijze" : "string"
+  } ],
+  "contractvorm" : [ {
+    "codeTypeArbeidscontract" : "string",
+    "codeTypeOvereenkomst" : "string"
+  } ],
+  "werkervaring" : [ {
+    "aantalJarenWerkzaamInBeroep" : 0
+  } ],
+  "rijbewijs" : [ {
+    "codeSoortRijbewijs" : "string"
+  } ],
+  "vervoermiddel" : [ {
+    "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+    "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+  } ],
+  "opleiding" : [ {
+    "codeNiveauOpleiding" : 0,
+    "indicatieDiploma" : 0,
+    "opleidingsnaam" : {
+      "codeOpleidingsnaam" : "string",
+      "omschrijvingOpleidingsnaam" : "string",
+      "naamOpleidingOngecodeerd" : "string"
+    }
+  } ],
+  "gedragscompetentie" : [ {
+    "codeGedragscompetentie" : 0,
+    "omschrijvingGedragsCompetentie" : "string",
+    "codeBeheersingGedragscompetentie" : 0
+  } ],
+  "vakvaardigheid" : [ {
+    "omschrijving" : "string"
+  } ],
+  "taalbeheersing" : [ {
+    "codeTaal" : "string",
+    "codeNiveauTaalbeheersingModeling" : 0,
+    "codeNiveauTaalbeheersingSchriftelijk" : 0,
+    "codeNiveauTaalbeheersingLezen" : 0,
+    "codeTaalbeheersingLuisteren" : 0
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "maximumAantalResultatenBereikt" : true,
+  "matches" : [ {
+    "idVacature" : "string",
+    "naamVacature" : "string",
+    "nummerVacature" : "string",
+    "omschrijvingVacature" : "string",
+    "codeWerkEnDenkniveauMinimaal" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "sluitingsDatumVacature" : "2015-07-20",
+    "sollicitatiewijze" : [ {
+      "codeSollicitatieWijze" : "string"
+    } ],
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "werkervaring" : [ {
+      "aantalJarenWerkzaamInBeroep" : 0
+    } ],
+    "rijbewijs" : [ {
+      "codeSoortRijbewijs" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0,
+      "codeVervoermiddel" : 0
+    } ],
+    "opleiding" : [ {
+      "codeNiveauOpleiding" : 0,
+      "indicatieDiploma" : 0,
+      "opleidingsnaam" : {
+        "codeOpleidingsnaam" : "string",
+        "omschrijvingOpleidingsnaam" : "string",
+        "naamOpleidingOngecodeerd" : "string",
+        "omschrijvingOpleiding" : "string"
+      }
+    } ],
+    "gedragscompetentie" : [ {
+      "codeGedragscompetentie" : 0,
+      "omschrijvingGedragsCompetentie" : "string",
+      "codeBeheersingGedragscompetentie" : 0
+    } ],
+    "vakvaardigheid" : [ {
+      "omschrijving" : "string"
+    } ],
+    "taalbeheersing" : [ {
+      "codeTaal" : "string",
+      "codeNiveauTaalbeheersingModeling" : 0,
+      "codeNiveauTaalbeheersingSchriftelijk" : 0,
+      "codeNiveauTaalbeheersingLezen" : 0,
+      "codeTaalbeheersingLuisteren" : 0
+    } ]
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="25bbef3e-8b08-499d-9170-13d10c62baf2" mediaType="application/json" postQueryString="false">
+      <con:settings/>
+      <con:endpoint>http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "codeWerkEnDenkniveauMinimaal" : "string",\r
+  "indicatieLdrRegistratie" : 0,\r
+  "sluitingsDatumVacature" : "2015-07-20",\r
+  "sollicitatiewijze" : [ {\r
+    "codeSollicitatieWijze" : "string"\r
+  } ],\r
+  "contractvorm" : [ {\r
+    "codeTypeArbeidscontract" : "string",\r
+    "codeTypeOvereenkomst" : "string"\r
+  } ],\r
+  "werkervaring" : [ {\r
+    "aantalJarenWerkzaamInBeroep" : 0\r
+  } ],\r
+  "rijbewijs" : [ {\r
+    "codeSoortRijbewijs" : "string"\r
+  } ],\r
+  "vervoermiddel" : [ {\r
+    "indicatieBeschikbaarVoorUitvoeringWerk" : 0,\r
+    "indicatieBeschikbaarVoorWoonWerkverkeer" : 0\r
+  } ],\r
+  "opleiding" : [ {\r
+    "codeNiveauOpleiding" : 0,\r
+    "indicatieDiploma" : 0,\r
+    "opleidingsnaam" : {\r
+      "codeOpleidingsnaam" : "string",\r
+      "omschrijvingOpleidingsnaam" : "string",\r
+      "naamOpleidingOngecodeerd" : "string"\r
+    }\r
+  } ],\r
+  "gedragscompetentie" : [ {\r
+    "codeGedragscompetentie" : 0,\r
+    "omschrijvingGedragsCompetentie" : "string",\r
+    "codeBeheersingGedragscompetentie" : 0\r
+  } ],\r
+  "vakvaardigheid" : [ {\r
+    "omschrijving" : "string"\r
+  } ],\r
+  "taalbeheersing" : [ {\r
+    "codeTaal" : "string",\r
+    "codeNiveauTaalbeheersingModeling" : 0,\r
+    "codeNiveauTaalbeheersingSchriftelijk" : 0,\r
+    "codeNiveauTaalbeheersingLezen" : 0,\r
+    "codeTaalbeheersingLuisteren" : 0\r
+  } ]\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="X-VUM-toParty" value=""/>
+        <con:entry key="X-VUM-fromParty" value=""/>
+        <con:entry key="X-VUM-viaParty" value=""/>
+        <con:entry key="X-VUM-SUWIparty" value=""/>
+        <con:entry key="X-VUM-berichtVersie" value=""/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+</con:resource>

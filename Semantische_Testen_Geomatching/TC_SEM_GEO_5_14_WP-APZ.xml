@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="43763723-95bc-4d4a-b9dc-5962af07411b" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SEM_GEO_5_14_WP-APZ" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>verwachte bronnen (omgevingsafhankelijk+testcase afhankelijk) worden gezet in propertytransfer stap</con:description>
+  <con:settings>
+    <con:setting id="43763723-95bc-4d4a-b9dc-5962af07411bfileName">TC_SEM_GEO_5_14_WP-APZ</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="setBronnenNull" id="d1c15afa-cc7a-44ff-9e9c-ea67312f51ca">
+    <con:settings/>
+    <con:config>
+      <script>testRunner.testCase.setPropertyValue("actueleBron1", "");
+testRunner.testCase.setPropertyValue("actueleBron2", "");
+testRunner.testCase.setPropertyValue("verwachteBronA", "");
+testRunner.testCase.setPropertyValue("verwachteBronB", "");</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="Generate randomGuid" id="b1025d15-61e7-439f-a3df-b33b91b51455">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>GUID</GeneratorType0>
+          <PropertyName0>randomGuid</PropertyName0>
+          <repetitionCountrandomGuid>0</repetitionCountrandomGuid>
+          <repeatValuesrandomGuid>false</repeatValuesrandomGuid>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>randomGuid</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="10bf316a-605b-4b4a-8d86-4071f6bfcef5">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>randomGuid</con:name>
+        <con:sourceType>randomGuid</con:sourceType>
+        <con:sourceStep>Generate randomGuid</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>randomGuid</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="setVerwachteBronnen" id="a4294f3e-6e09-4485-97cc-5fd0ce7e9db8">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>AMS</con:name>
+        <con:sourceType>bronIdAms</con:sourceType>
+        <con:sourceStep>#Project#</con:sourceStep>
+        <con:targetType>verwachteBronA</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="MatcheswerkzoekendeProfielen - Request" id="01acd71b-af32-49b2-b2cc-61684d9498f1">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker werkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatcheswerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="MatcheswerkzoekendeProfielen - Request" id="b755a096-32e0-4a6a-b3bc-8707558238fb" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request>{\r
+  "callbackURL" : "http://testing-callback.westeurope.azurecontainer.io/${#TestCase#tc}_${#TestCase#randomGuid}",
+  "postcode" : "${#TestCase#postcode}",\r
+  "straal" :"${#TestCase#straal}",
+  "vraagObject" : {\r
+    "indicatieLdrRegistratie" : 1,\r
+    "indicatieBeschikbaarheidContactgegevens" : 1,\r
+    "voorkeursland" : [ {\r
+      "landencodeIso" : "st"\r
+    } ],\r
+    "vervoermiddel" : [ {\r
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,\r
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0\r
+    } ],\r
+    "mobiliteit" : {\r
+      "bemiddelingspostcode" : "${#TestCase#bemiddelingsPostcode}",\r
+      "maximaleReisafstand" : "${#TestCase#maxReisAfstand}",\r
+      "maximaleReistijd" : 1
+    },\r
+    "flexibiliteit" : {\r
+      "codeRegiostraal" : 1,\r
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,\r
+      "datumAanvangBeschikbaarVoorWerk" : "2019-11-11",\r
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"\r
+    },\r
+    "werktijden" : {\r
+      "aantalWerkurenPerWeekMinimaal" : 8,\r
+      "aantalWerkurenPerWeekMaximaal" : 16\r,
+      "indicatieKantoortijden" : 0\r
+    },\r
+    "contractvorm" : [ {\r
+      "codeTypeArbeidscontract" : "1",\r
+      "codeTypeOvereenkomst" : "st"\r
+    } ],\r
+    "arbeidsmarktkwalificatie" : {\r
+      "codeWerkEnDenkniveauWerkzoekende" : 0,\r
+      "vakvaardigheid" : [ {\r
+        "omschrijving" : "string"\r
+      } ],\r
+      "taalbeheersing" : [ {\r
+        "codeTaal" : "str",\r
+        "codeNiveauTaalbeheersingMondeling" : 0,\r
+        "codeNiveauTaalbeheersingSchriftelijk" : 0,\r
+        "codeNiveauTaalbeheersingLezen" : 0,\r
+        "codeNiveauTaalbeheersingLuisteren" : 0\r
+      } ],\r
+      "gedragscompetentie" : [ {\r
+        "codeGedragscompetentie" : "0",\r
+        "omschrijvingGedragscompetentie" : "string",\r
+        "codeBeheersingGedragscompetentie" : 0\r
+      } ],\r
+      "rijbewijs" : [ {\r
+        "codeSoortRijbewijs" : "str"\r
+      } ],\r
+      "cursus" : [ {\r
+        "naamCursus" : "string",\r
+        "datumCertificaat" : "2015-07-20"\r
+      } ],\r
+      "opleiding" : [ {\r
+        "codeNiveauOpleiding" : 0,\r
+        "indicatieDiploma" : 0,\r
+        "datumDiploma" : "2015-07-20",\r
+        "opleidingsnaam" : {\r
+          "codeOpleidingsnaam" : 0,\r
+          "omschrijvingOpleidingsnaam" : "string"\r
+        }\r
+      } ],\r
+      "werkervaring" : [ {\r
+        "datumAanvangWerkzaamheden" : "2015-07-20",\r
+        "datumEindeWerkzaamheden" : "2015-07-20",\r
+        "naamOrganisatie" : "string",\r
+        "beroep" : {\r
+          "codeBeroepsnaam" : "string",\r
+          "omschrijvingBeroepsnaam" : "string"\r
+        }\r
+      } ]\r
+    },\r
+    "sector" : [ {\r
+      "codeSbi" : 0\r
+    } ],\r
+    "bemiddelingsberoep" : [ {\r
+      "codeBeroepsnaam" : "string",\r
+      "omschrijvingBeroepsnaam" : "string"\r
+    } ]\r
+  }\r
+}</con:request>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="JsonPath Existence Match" id="76d4e150-ae28-4ac6-b961-f61bfd5c682c" name="Check for existence of [vraagID]">
+          <con:configuration>
+            <path>$['vraagID']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="X-VUM-viaParty" value="${Data Source#X-VUM-viaParty}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer vraagID" id="c00a466f-d3d7-422f-beed-3358b06ed188">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatcheswerkzoekendeProfielen - Request</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Properties vraagID" id="d04d2f00-cba3-4617-8dac-c4b6ed185876">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>vraagID</con:name>
+          <con:value>23d39d2e-dc04-403b-8f1b-ebec5d4e08ec</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="delay" name="15 sec wachten" id="f344664e-44f8-4ff2-a53e-12ea73407969">
+    <con:settings/>
+    <con:config>
+      <delay>15000</delay>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CB_get_post_receiver" id="a7e3de88-3f98-46f3-b7a2-b7fd7fd2ae2b">
+    <con:settings/>
+    <con:config service="CB API testing-callback" resourcePath="/{path}" methodName="CB_get_post_receiver" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CB_get_post_receiver" id="1dd9ab6f-459b-4329-8e10-d079c54abbc8" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>http://testing-callback.westeurope.azurecontainer.io/pct_1-1</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="path" value="${#TestCase#tc}_${#TestCase#randomGuid}"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="setMatchesPresent" id="4dbd478e-69b0-4c55-8890-e48cf7c32da3">
+    <con:settings/>
+    <con:config>
+      <script>import groovy.json.*;
+import groovy.util.*;
+def response = context.response;
+log.info(response.toString())
+def responseObject = new JsonSlurper().parseText(response)
+if (responseObject.size() > 1) {
+	testRunner.testCase.setPropertyValue("matches0Aanwezig", "1");		
+	testRunner.testCase.setPropertyValue("matches1Aanwezig", "1");
+} else {
+	if (responseObject.size() == 1) {
+  	  testRunner.testCase.setPropertyValue("matches0Aanwezig", "1");		
+	} else {
+	  testRunner.testCase.setPropertyValue("matches0Aanwezig", "0");				
+	}
+	testRunner.testCase.setPropertyValue("matches1Aanwezig", "0");
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="voorwaardeMatches0Loop" id="2466ae16-1f1b-4409-9638-a7be45bfb4d5">
+    <con:settings/>
+    <con:config>
+      <script>if (testRunner.testCase.getPropertyValue("matches0Aanwezig").equals("0")) {
+	log.info("Geen matches[0] aanwezig, naar einde test");
+	testRunner.gotoStepByName("assert Bronnen");
+} else {
+	testRunner.gotoStepByName("matches")
+	log.info("Terecht matches[0] aanwezig");
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="matches" id="99cc42f8-11a5-4930-adb1-1bb9eab4906c">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>CB_get_post_receiver</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>$[0]['body']['matches']</rowPath>
+          <columnPath>vumID</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>vumID</con:property>
+      <con:startRow>0</con:startRow>
+      <con:endRow>0</con:endRow>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:gotoLoopOnEmpty>true</con:gotoLoopOnEmpty>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getWerkzoekendeProfiel0" id="e6b69c46-b7d0-48c2-9ddc-419b99caca86">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker werkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/{vumID}" methodName="getWerkzoekendeProfiel" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getWerkzoekendeProfiel0" id="90545fa0-b041-4393-b540-7a352fa78dfb" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/werkzoekendeProfielen/</con:originalUri>
+        <con:assertion type="JsonPath Match" name="Match content of [bronID]" id="db746364-f4fe-4227-b4f1-b8af25daff63" disabled="true">
+          <con:configuration>
+            <path>$['bronID']</path>
+            <content>"b73a9627-8007-4de7-8cbc-8dfba78503ba"</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" name="Check for existence of [idWerkzoekende]" id="a5e2e11b-2327-4d22-bf03-ab3a56f790de">
+          <con:configuration>
+            <path>$['werkzoekende']['idWerkzoekende']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="vumID" value="${matches#vumID}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="setActueleBron1" id="5887df18-ab3b-48c9-ab24-ad8901412dcf">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>set bronId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>getWerkzoekendeProfiel0</con:sourceStep>
+        <con:sourcePath>$['bronID']</con:sourcePath>
+        <con:targetType>actueleBron1</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="match loop0" id="9cbd9803-448f-437e-84f3-d16d8d0b9270">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>matches</dataSourceStep>
+      <targetStep>getWerkzoekendeProfiel0</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="voorwaardeMatches1Loop" id="ead4206a-55d6-4961-b623-3d72f602e70d">
+    <con:settings/>
+    <con:config>
+      <script>if (testRunner.testCase.getPropertyValue("matches1Aanwezig").equals("0")) {
+	log.info("Geen matches[1] aanwezig, naar einde test");
+	testRunner.gotoStepByName("assert Bronnen");
+} else {
+	testRunner.gotoStepByName("matches1")
+	log.info("Terecht matches[1] aanwezig");
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="matches1" id="e78ea8d7-161b-4bdf-a258-fbb26c585f2a">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>CB_get_post_receiver</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>$[1]['body']['matches']</rowPath>
+          <columnPath>vumID</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>vumID</con:property>
+      <con:startRow>0</con:startRow>
+      <con:endRow>0</con:endRow>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:gotoLoopOnEmpty>true</con:gotoLoopOnEmpty>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>false</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getWerkzoekendeProfiel1" id="dd43a5a6-f011-4835-afb6-3c1869db4e10">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker werkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/{vumID}" methodName="getWerkzoekendeProfiel" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getWerkzoekendeProfiel1" id="90545fa0-b041-4393-b540-7a352fa78dfb" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/werkzoekendeProfielen/</con:originalUri>
+        <con:assertion type="JsonPath Match" name="Match content of [bronID]" id="db746364-f4fe-4227-b4f1-b8af25daff63" disabled="true">
+          <con:configuration>
+            <path>$['bronID']</path>
+            <content>"b73a9627-8007-4de7-8cbc-8dfba78503ba"</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" name="Check for existence of [idWerkzoekende]" id="a5e2e11b-2327-4d22-bf03-ab3a56f790de">
+          <con:configuration>
+            <path>$['werkzoekende']['idWerkzoekende']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="vumID" value="${matches1#vumID}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="setActueleBron2" id="aa8dc121-05cc-4878-b4c3-224a48a5cb18">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>set bronId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>getWerkzoekendeProfiel1</con:sourceStep>
+        <con:sourcePath>$['bronID']</con:sourcePath>
+        <con:targetType>actueleBron2</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="match loop1" id="b394b4db-cc03-473b-a6b5-2cc94814854d">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>matches</dataSourceStep>
+      <targetStep>assert Bronnen</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="assert Bronnen" id="df1944b6-cd31-4b16-8a9d-108d30880e10">
+    <con:settings/>
+    <con:config>
+      <script><![CDATA[def String testcase = "Testcase: " + testRunner.getTestCase().getName() + ": ";
+def String actueleBron1 = testRunner.getTestCase().getPropertyValue("actueleBron1");
+def String actueleBron2 = testRunner.getTestCase().getPropertyValue("actueleBron2");
+def String verwachteBronA = testRunner.getTestCase().getPropertyValue("verwachteBronA");
+def String verwachteBronB = testRunner.getTestCase().getPropertyValue("verwachteBronB");
+def String geenActueleBronnen = "geen actuele bronnen ";
+def String geenVerwachteBronnen = "geen verwachte bronnen ";
+def String actueleBronnen = "actuele bronnen (" + actueleBron1 + "," + actueleBron2 + ") ";
+def String verwachteBronnen = "verwachte bronnen (" + verwachteBronA + "," + verwachteBronB + ")  ";
+String[] verwachteBronnenArray = [verwachteBronA, verwachteBronB];
+
+// geen actuele bronnen
+if (actueleBron1.isEmpty() && actueleBron2.isEmpty()) {
+    // ook niet verwacht
+    if (verwachteBronA.isEmpty() && verwachteBronB.isEmpty()) {
+        log.info(testcase + geenActueleBronnen + " en " + geenVerwachteBronnen);
+        assert true;
+        // FOUT wel verwacht
+    } else {
+        log.error(testcase + verwachteBronnen + " maar geen actuele bron");
+        assert false;
+    }
+} else {
+    // 1 of 2 actuele bronnen
+    if (!actueleBron1.isEmpty() || !actueleBron2.isEmpty()) {
+        // FOUT het is niet toegestaan dat het om dezelfde bron gaat
+        if (actueleBron1 == actueleBron2) {
+            log.error(testcase + "actueleBron1 en actueleBron2 zijn hetzelfde, dit is niet toegestaan");
+            assert false;
+        }
+        // FOUT geen verwachte bron
+        if (verwachteBronA.isEmpty() && verwachteBronB.isEmpty()) {
+            log.error(testcase + geenVerwachteBronnen + " en wel 1 of meer " + actueleBronnen);
+            assert false;
+        } else
+
+        // 1 of meerdere actuele bronnen is geen verwachte bron
+        {
+            boolean goed = true;
+            String foutmeldingDeel1;
+            String foutmeldingDeel2;
+            // FOUT actuele1 niet verwacht
+            if (!actueleBron1.isEmpty() && !verwachteBronnenArray.contains(actueleBron1)) {
+                goed = false;
+                foutmeldingDeel1 = " actuele Bron 1 " + actueleBron1 + " is geen van de " + verwachteBronnen;
+            }
+            // FOUT actuele2 niet verwacht
+            if (!actueleBron2.isEmpty() && !verwachteBronnenArray.contains(actueleBron2)) {
+                goed = false;
+                foutmeldingDeel2 = " actuele Bron 2 " + actueleBron2 + " is geen van de " + verwachteBronnen;
+            }
+            if (!goed) {
+                log.error(testcase + foutmeldingDeel1 + foutmeldingDeel2);
+                assert false;
+            }
+            if ((actueleBron1.isEmpty() || actueleBron2.isEmpty() && (!verwachteBronA.isEmpty() && !verwachteBronB.isEmpty()))) {
+                log.error(testcase + " 1 actuele bron " + actueleBronnen + " terwijl er 2 verwacht werden " + verwachteBronnen);
+                assert false;
+            } 
+                log.info(testcase + "actueleBronnen matchen met verwachting (volgorde niet van belang): " + actueleBronnen + verwachteBronnen);
+            assert true;
+        }
+    }
+}]]></script>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>actueleBron1</con:name>
+      <con:value>2d26cbcb-cf76-4b0b-835e-cd4a8586cc1e</con:value>
+    </con:property>
+    <con:property>
+      <con:name>actueleBron2</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>bemiddelingsPostcode</con:name>
+      <con:value>${#TestCase#postcode}AA</con:value>
+    </con:property>
+    <con:property>
+      <con:name>matches0Aanwezig</con:name>
+      <con:value>1</con:value>
+    </con:property>
+    <con:property>
+      <con:name>matches1Aanwezig</con:name>
+      <con:value>0</con:value>
+    </con:property>
+    <con:property>
+      <con:name>postcode</con:name>
+      <con:value>9766</con:value>
+    </con:property>
+    <con:property>
+      <con:name>randomGuid</con:name>
+      <con:value>c9df44d9-9d7a-4f96-a949-b3d3a3c81fe3</con:value>
+    </con:property>
+    <con:property>
+      <con:name>straal</con:name>
+      <con:value>30000</con:value>
+    </con:property>
+    <con:property>
+      <con:name>tc</con:name>
+      <con:value>TC_SEM_GEO_5_14_WP</con:value>
+    </con:property>
+    <con:property>
+      <con:name>verwachteBronA</con:name>
+      <con:value>2d26cbcb-cf76-4b0b-835e-cd4a8586cc1e</con:value>
+    </con:property>
+    <con:property>
+      <con:name>verwachteBronB</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>maxReisAfstand</con:name>
+      <con:value>30</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>e228da64-bf1e-47b9-ae4a-2027dc9b9330</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>327e4717-24e8-4e4e-ba10-eb40c00b5179</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6033ec90-a8d0-4441-a657-e7d01ddef02a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4001d9e7-9d4b-462b-9118-ccdbb72dfb9f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6ce7d2d7-62e5-48b8-a03f-24c16a1e9d1c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>5b46af33-7142-47f8-9f2a-9c12b306971b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>21c9859e-ed84-4742-9a50-25067a7a7757</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f33a8ff9-b971-4f2b-929b-fabae7c4a981</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>606ad0a1-fc90-4543-a009-53adea331c82</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>69ca3dfc-1e7d-4123-a404-7fceff1b9acd</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>863b3b73-bfc6-4b82-94f8-65e67f1c0265</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>db9aa5e4-c815-47b1-85a0-48bcdc617593</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>07e1b403-4c74-4c20-9581-9cf15d691960</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0c531a1f-a055-4f1e-bafa-3f675fe8fa74</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4fa5f35e-1d58-4452-8028-af20f07e2ba6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>66c22dc1-d018-4c1c-9eef-1b9c9d9032d7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e4aa861e-a1e9-4c4f-8f84-0f1614374ccf</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ac32e72d-559e-485b-91bf-60ca994ddb91</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>3dff82bd-f98f-429f-8266-4fa43d22f2a5</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>561ee0a0-b4bc-4ea0-931b-45fe7ad29f9a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f39d32e0-4dbb-4df1-b764-3e5eb68bd900</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6ffddcbd-bf56-4744-8da5-9b7215cf6f94</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="6052a768-00b8-495b-83bd-a6cc636db3af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

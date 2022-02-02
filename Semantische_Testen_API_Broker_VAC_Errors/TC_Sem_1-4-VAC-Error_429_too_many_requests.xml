@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="ee14ff18-103b-40a2-870f-2ec26546380f" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_Sem_1-4-VAC-Error_429_too_many_requests" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>disabled - check calls and coverage</con:description>
+  <con:settings>
+    <con:setting id="ee14ff18-103b-40a2-870f-2ec26546380ffileName">TC_Sem_1-4-VAC-Error_429_too_many_requests</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="generateRandomGuid" id="4a2413ee-d89b-42f1-b2c5-b61595df0593">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>GUID</GeneratorType0>
+          <PropertyName0>randomGuid</PropertyName0>
+          <repetitionCountrandomGuid>0</repetitionCountrandomGuid>
+          <repeatValuesrandomGuid>false</repeatValuesrandomGuid>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>randomGuid</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="c976c56d-6b5f-4853-96d0-d70e0485275c">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>randomGuid</con:name>
+        <con:sourceType>randomGuid</con:sourceType>
+        <con:sourceStep>generateRandomGuid</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>randomGuid</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="MatchesVacatures - Request 1" id="dcaeac46-75ff-47d7-8bcb-ace6493f8c2f">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker vacatures" resourcePath="/vacatures/matches" methodName="MatchesVacatures" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="MatchesVacatures - Request 1" id="a44ad219-31cd-448e-870e-328ace9606b7" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request>{\r
+  "callbackURL" : "http://testing-callback.westeurope.azurecontainer.io/${#TestCase#tc}_${#TestCase#randomGuid}",
+  "postcode" : "${#TestCase#postcode}",
+  "straal" :"${#TestCase#straal}",
+  "vraagObject" : {\r
+    "codeWerkEnDenkniveauMinimaal" : "s",\r
+    "indicatieLdrRegistratie" : 0,\r
+    "sluitingsDatumVacature" : "2015-07-20",\r
+    "sollicitatiewijze" : [ {\r
+      "codeSollicitatiewijze" : "s"\r
+    } ],\r
+    "werkgever" : {\r
+      "adresHouding" : [ {\r
+        "codeFunctieAdres" : "s",\r
+        "adres" : {\r
+          "adresBuitenland" : {\r
+            "landencodeIso" : "st"\r
+          }\r
+        }\r
+      } ],\r
+      "sector" : [ {\r
+        "codeSbi" : 0\r
+      } ]\r
+    },\r
+    "sector" : {\r
+      "codeSbi" : 0\r
+    },\r
+    "arbeidsVoorwaarden" : {\r
+      "datumAanvangWerkzaamheden" : "2015-07-20",\r
+      "datumEindeWerkzaamheden" : "2015-07-20",\r
+      "salarisIndicatie" : "string"\r
+    },\r
+    "contractvorm" : [ {\r
+      "codeTypeArbeidscontract" : "s",\r
+      "codeTypeOvereenkomst" : "st"\r
+    } ],\r
+    "beroep" : {\r
+      "codeBeroepsnaam" : "string",\r
+      "omschrijvingBeroepsnaam" : "string"\r
+    },\r
+    "werkervaring" : [ {\r
+      "aantalJarenWerkzaamInBeroep" : 0\r
+    } ],\r
+    "rijbewijs" : [ {\r
+      "codeSoortRijbewijs" : "str"\r
+    } ],\r
+    "vervoermiddel" : [ {\r
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,\r
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0\r
+    } ],\r
+    "flexibiliteit" : {\r
+      "codeRegiostraal" : 0,\r
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,\r
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",\r
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"\r
+    },\r
+    "werktijden" : {\r
+      "aantalWerkurenPerWeekMinimaal" : 0,\r
+      "aantalWerkurenPerWeekMaximaal" : 0,\r
+      "indicatieKantoortijden" : 0\r
+    },\r
+    "cursus" : [ {\r
+      "naamCursus" : "string"\r
+    } ],\r
+    "opleiding" : [ {\r
+      "codeNiveauOpleiding" : 0,\r
+      "indicatieDiploma" : 0,\r
+      "opleidingsnaam" : {\r
+        "codeOpleidingsnaam" : 0,\r
+        "omschrijvingOpleidingsnaam" : "string"\r
+      }\r
+    } ],\r
+    "gedragscompetentie" : [ {\r
+      "codeGedragscompetentie" : "0",\r
+      "omschrijvingGedragscompetentie" : "string",\r
+      "codeBeheersingGedragscompetentie" : 0\r
+    } ],\r
+    "vakvaardigheid" : [ {\r
+      "omschrijving" : "string"\r
+    } ],\r
+    "taalbeheersing" : [ {\r
+      "codeTaal" : "str",\r
+      "codeNiveauTaalbeheersingMondeling" : 0,\r
+      "codeNiveauTaalbeheersingSchriftelijk" : 0,\r
+      "codeNiveauTaalbeheersingLezen" : 0,\r
+      "codeNiveauTaalbeheersingLuisteren" : 0\r
+    } ]\r
+  }\r
+}</con:request>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/vacatures/matches</con:originalUri>
+        <con:assertion type="JsonPath Existence Match" id="2ee73b4d-a6f2-42b1-bdb5-496c2e70c274" name="Check for existence of [vraagID]">
+          <con:configuration>
+            <path>$['vraagID']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer vraagID" id="8d6d2781-7bd2-4fab-949e-c0a8a90d5c4e">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>vraagID</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>MatchesVacatures - Request 1</con:sourceStep>
+        <con:sourcePath>$['vraagID']</con:sourcePath>
+        <con:targetType>vraagID</con:targetType>
+        <con:targetStep>Properties vraagID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Properties vraagID" id="21ce7dcd-641d-40b6-920b-8f219165dd7b">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>vraagID</con:name>
+          <con:value>98f47905-fad0-43ac-b997-ea5f28657a09</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="delay" name="Delay" id="8ffdedbc-99cb-48fe-a582-5637519e53ec">
+    <con:settings/>
+    <con:config>
+      <delay>10000</delay>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CB_get_post_receiver" id="90e4717f-4f95-42cb-8fad-b90e8736f69d">
+    <con:settings/>
+    <con:config service="CB API testing-callback" resourcePath="/{path}" methodName="CB_get_post_receiver" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CB_get_post_receiver" id="1dd9ab6f-459b-4329-8e10-d079c54abbc8" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>http://testing-callback.westeurope.azurecontainer.io/pct_1-1</con:originalUri>
+        <con:assertion type="JsonPath Match" name="Match content of [vraagID]" id="b5393894-d46d-4608-ae25-adeb0205b4c3">
+          <con:configuration>
+            <path>$[0]['body']['vraagID']</path>
+            <content>${Properties vraagID#vraagID}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" name="Check for existence of [vumID]" id="a184cc58-6793-44ff-84bb-104cf06296d1">
+          <con:configuration>
+            <path>$[0]['body']['matches'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Count" id="704d8b31-02b1-45aa-a1ef-6c0a7badcaf0" name="JSONPath Count">
+          <con:configuration>
+            <path>$[0]['body']</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="path" value="${#TestCase#tc}_${#TestCase#randomGuid}"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="matches" id="79153d6f-354a-43d7-af67-48949a74df3b">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>CB_get_post_receiver</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>$[0]['body']['matches']</rowPath>
+          <columnPath>vumID</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>vumID</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:gotoLoopOnEmpty>true</con:gotoLoopOnEmpty>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getWerkzoekendeProfiel" id="862e1ce2-cb2b-43e9-9fba-a1411aa3f784">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker werkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/{vumID}" methodName="getWerkzoekendeProfiel" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getWerkzoekendeProfiel" id="90545fa0-b041-4393-b540-7a352fa78dfb" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/werkzoekendeProfielen/</con:originalUri>
+        <con:assertion type="JsonPath Match" name="Match content of [bronID]" id="db746364-f4fe-4227-b4f1-b8af25daff63" disabled="true">
+          <con:configuration>
+            <path>$['bronID']</path>
+            <content>"b73a9627-8007-4de7-8cbc-8dfba78503ba"</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" name="Check for existence of [idWerkzoekende]" id="a5e2e11b-2327-4d22-bf03-ab3a56f790de" disabled="true">
+          <con:configuration>
+            <path>$['werkzoekende']['idWerkzoekende']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="vumID" value="${matches#vumID}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="match loop" id="46c4a31e-e7a0-4195-a9f3-1826664b349c">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>matches</dataSourceStep>
+      <targetStep>getWerkzoekendeProfiel0</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="assertionteststep" name="AssertError429" id="94de1166-6ce7-438a-95b8-eef956f807a5">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:entry>
+        <con:id>ad5f9ad2-6377-41e2-8d49-122fa0dd2020</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>78aef688-beeb-42b9-a10b-958a21dcd260</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion type="DataAndMetadataAssertion" name="Smart Assertion" id="45b98038-1085-4d13-a62a-6d35b0a12a50">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Metadata</con:mode>
+            <con:elements>
+              <con:path>$['Headers']['date']</con:path>
+              <con:element>date</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Fri, 17 Dec 2021 11:32:36 GMT</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['content-length']</con:path>
+              <con:element>content-length</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>215</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['server']</con:path>
+              <con:element>server</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>istio-envoy</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['x-envoy-upstream-service-time']</con:path>
+              <con:element>x-envoy-upstream-service-time</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>14</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['content-security-policy']</con:path>
+              <con:element>content-security-policy</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>default-src 'self' 'unsafe-inline'</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['x-content-type-options']</con:path>
+              <con:element>x-content-type-options</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>nosniff</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['x-xss-protection']</con:path>
+              <con:element>x-xss-protection</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1;mode=block</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['x-frame-options']</con:path>
+              <con:element>x-frame-options</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>SAMEORIGIN</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['referrer-policy']</con:path>
+              <con:element>referrer-policy</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>strict-origin-when-cross-origin</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['content-type']</con:path>
+              <con:element>content-type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>application/json</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['#status#']</con:path>
+              <con:element>#status#</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>HTTP/1.1 429 Too Many Requests</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['strict-transport-security']</con:path>
+              <con:element>strict-transport-security</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>max-age=31622400; includeSubDomains</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{"Headers":{"date":"Fri, 17 Dec 2021 11:32:36 GMT","content-length":"215","server":"istio-envoy","x-envoy-upstream-service-time":"14","content-security-policy":"default-src 'self' 'unsafe-inline'","x-content-type-options":"nosniff","x-xss-protection":"1;mode=block","x-frame-options":"SAMEORIGIN","referrer-policy":"strict-origin-when-cross-origin","content-type":"application/json","#status#":"HTTP/1.1 429 Too Many Requests","strict-transport-security":"max-age=31622400; includeSubDomains"}}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>tc</con:name>
+      <con:value>TC_Sem_1-4-VAC</con:value>
+    </con:property>
+    <con:property>
+      <con:name>postcode</con:name>
+      <con:value>4511</con:value>
+    </con:property>
+    <con:property>
+      <con:name>straal</con:name>
+      <con:value>60000</con:value>
+    </con:property>
+    <con:property>
+      <con:name>matches1Aanwezig</con:name>
+      <con:value>0</con:value>
+    </con:property>
+    <con:property>
+      <con:name>matches1Present</con:name>
+      <con:value>0</con:value>
+    </con:property>
+    <con:property>
+      <con:name>randomGuid</con:name>
+      <con:value>f5f64693-3aa8-47cc-a068-dc7a6b3a49f2</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>e228da64-bf1e-47b9-ae4a-2027dc9b9330</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>327e4717-24e8-4e4e-ba10-eb40c00b5179</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6033ec90-a8d0-4441-a657-e7d01ddef02a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4001d9e7-9d4b-462b-9118-ccdbb72dfb9f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6ce7d2d7-62e5-48b8-a03f-24c16a1e9d1c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>5b46af33-7142-47f8-9f2a-9c12b306971b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>21c9859e-ed84-4742-9a50-25067a7a7757</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f33a8ff9-b971-4f2b-929b-fabae7c4a981</con:testStepId>
+    <con:status>ENABLED</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>606ad0a1-fc90-4543-a009-53adea331c82</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>69ca3dfc-1e7d-4123-a404-7fceff1b9acd</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>863b3b73-bfc6-4b82-94f8-65e67f1c0265</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>db9aa5e4-c815-47b1-85a0-48bcdc617593</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>07e1b403-4c74-4c20-9581-9cf15d691960</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0c531a1f-a055-4f1e-bafa-3f675fe8fa74</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4fa5f35e-1d58-4452-8028-af20f07e2ba6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>66c22dc1-d018-4c1c-9eef-1b9c9d9032d7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e4aa861e-a1e9-4c4f-8f84-0f1614374ccf</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ac32e72d-559e-485b-91bf-60ca994ddb91</con:testStepId>
+    <con:status>ENABLED</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="6052a768-00b8-495b-83bd-a6cc636db3af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

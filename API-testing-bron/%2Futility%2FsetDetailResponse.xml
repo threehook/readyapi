@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/utility/setDetailResponse" path="/utility/setDetailResponse" id="feba065f-2c28-40f3-87a9-baf65e66fd39" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="feba065f-2c28-40f3-87a9-baf65e66fd39fileName">%2Futility%2FsetDetailResponse</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="post_detail_operations" id="bbc6029c-0732-4f06-abdd-83136eea3502" method="POST">
+    <con:description>Detailed profile to be returned for specific request</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>X-VUM-berichtVersie</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-VUM-fromParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-VUM-toParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-VUM-viaParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "uuid" : "string",
+  "object" : { }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="731e2198-2725-4421-9d02-f651186cb463" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "uuid" : "string",\r
+  "object" : { }\r
+}</con:request>
+      <con:originalUri>http://testing-bron.westeurope.azurecontainer.io/api/v1/utility/setDetailResponse</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+        <con:entry key="X-VUM-viaParty" value="${Data Source#X-VUM-viaParty}"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>X-VUM-berichtVersie</con:entry>
+        <con:entry>X-VUM-fromParty</con:entry>
+        <con:entry>X-VUM-toParty</con:entry>
+        <con:entry>X-VUM-viaParty</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+  <con:method name="delete_detail_operations" id="0b48e397-a1be-4a73-934f-2f5cacb501ca" method="DELETE">
+    <con:description>Delete set answer for certain detail call</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "uuid" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="2a6ea1c3-c18d-4b03-bb0e-6993f2c35216" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "uuid" : "string"\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

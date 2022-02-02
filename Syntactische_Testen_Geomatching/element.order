@@ -1,0 +1,12 @@
+TC_SYN_GEO_1.1_WP---GEEN-pc%2Fstraal.xml
+TC_SYN_GEO_1.2_WP---ALLEEN-pc.xml
+TC_SYN_GEO_1.3_WP---ALLEEN-straal.xml
+TC_SYN_GEO_1.4_WP---pc-null---straal-null.xml
+TC_SYN_GEO_1.5_WP---pc-null---straal-waarde.xml
+TC_SYN_GEO_1.6_WP---pc-waarde---straal-null.xml
+TC_SYN_GEO_1.7_VAC-GEEN-pc%2Fstraal.xml
+TC_SYN_GEO_1.8_VAC---ALLEEN-pc.xml
+TC_SYN_GEO_1.9_VAC---ALLEEN-straal.xml
+TC_SYN_GEO_1.10_VAC---pc-null---straal-null.xml
+TC_SYN_GEO_1.11_VAC---pc-null---straal-waarde.xml
+TC_SYN_GEO_1.12_VAC---pc-waarde---straal-null.xml

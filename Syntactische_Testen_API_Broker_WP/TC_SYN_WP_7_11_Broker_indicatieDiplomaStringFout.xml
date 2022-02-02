@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="1cb993d8-1e3a-4dad-b5f2-714795dc7741" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SYN_WP_7_11_Broker_indicatieDiplomaStringFout" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1cb993d8-1e3a-4dad-b5f2-714795dc7741fileName">TC_SYN_WP_7_11_Broker_indicatieDiplomaStringFout</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="REST Request" id="4a589fa3-d97d-4e63-bdf1-b7187c0fc779">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker werkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatcheswerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="b755a096-32e0-4a6a-b3bc-8707558238fb" mediaType="application/json" postQueryString="false">
+        <con:description>Zoekopdracht om matches voor Werkzoekende MatchingProfielen op te vragen</con:description>
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request>{
+  "callbackURL" : "test.com",
+  "postcode" : "2552",
+  "straal" : 50,
+  "vraagObject": {
+    "indicatieLdrRegistratie": 9,
+    "indicatieBeschikbaarheidContactgegevens": 9,
+    "voorkeursland": [
+      {
+        "landencodeIso": "st"
+      }
+    ],
+    "vervoermiddel": [
+      {
+        "indicatieBeschikbaarVoorUitvoeringWerk": 9,
+        "indicatieBeschikbaarVoorWoonWerkverkeer": 9
+      }
+    ],
+    "mobiliteit": {
+      "bemiddelingspostcode": "1234AB",
+      "maximaleReisafstand": 999,
+      "maximaleReistijd": 999
+    },
+    "flexibiliteit": {
+      "codeRegiostraal": 9,
+      "indicatieOnregelmatigWerkOfPloegendienst": 9,
+      "datumAanvangBeschikbaarVoorWerk": "2022-01-06",
+      "datumEindeBeschikbaarVoorWerk": "2022-01-06"
+    },
+    "werktijden": {
+      "aantalWerkurenPerWeekMinimaal": 99,
+      "aantalWerkurenPerWeekMaximaal": 99,
+      "indicatieKantoortijden": 9
+    },
+    "contractvorm": [
+      {
+        "codeTypeArbeidscontract": "s",
+        "codeTypeOvereenkomst": "st"
+      }
+    ],
+    "arbeidsmarktkwalificatie": {
+      "codeWerkEnDenkniveauWerkzoekende": 9,
+      "vakvaardigheid": [
+        {
+          "omschrijving": "string"
+        }
+      ],
+      "taalbeheersing": [
+        {
+          "codeTaal": "str",
+          "codeNiveauTaalbeheersingMondeling": 9,
+          "codeNiveauTaalbeheersingSchriftelijk": 9,
+          "codeNiveauTaalbeheersingLezen": 9,
+          "codeNiveauTaalbeheersingLuisteren": 9
+        }
+      ],
+      "gedragscompetentie": [
+        {
+          "codeGedragscompetentie": "9999999999",
+          "omschrijvingGedragscompetentie": "string",
+          "codeBeheersingGedragscompetentie": 9
+        }
+      ],
+      "rijbewijs": [
+        {
+          "codeSoortRijbewijs": "str"
+        }
+      ],
+      "cursus": [
+        {
+          "naamCursus": "string",
+          "datumCertificaat": "2022-01-06"
+        }
+      ],
+      "opleiding": [
+        {
+          "codeNiveauOpleiding": 9,
+          "indicatieDiploma": "A",
+          "datumDiploma": "2022-01-06",
+          "opleidingsnaam": {
+            "opleidingsnaamGecodeerd": {
+              "codeOpleidingsnaam": "9999999999",
+              "omschrijvingOpleidingsnaam": "string"
+            }
+          }
+        }
+      ],
+      "werkervaring": [
+        {
+          "datumAanvangWerkzaamheden": "2022-01-06",
+          "datumEindeWerkzaamheden": "2022-01-06",
+          "naamOrganisatie": "string",
+          "beroep": {
+            "beroepsnaamGecodeerd": {
+              "codeBeroepsnaam": "string",
+              "omschrijvingBeroepsnaam": "string"
+            }
+          }
+        }
+      ]
+    },
+    "sector": [
+      {
+        "codeSbi": 99999
+      }
+    ],
+    "bemiddelingsberoep": [
+      {
+        "beroepsnaamGecodeerd": {
+          "codeBeroepsnaam": "string",
+          "omschrijvingBeroepsnaam": "string"
+        }
+      },
+      {
+        "beroepsnaamOngecodeerd": {
+          "naamBeroepOngecodeerd": "string"
+        }
+      }
+    ]
+  }
+}</con:request>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="a54eda4c-2856-418f-a32c-d784668dd8a9" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="8dc85720-9120-4e45-98d4-4e376ccef4af" name="Smart Assertion">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Metadata</con:mode>
+            <con:elements>
+              <con:path>$['Headers']['date']</con:path>
+              <con:element>date</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Fri, 14 Jan 2022 11:00:12 GMT</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['server']</con:path>
+              <con:element>server</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>istio-envoy</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['content-length']</con:path>
+              <con:element>content-length</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>153</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['x-envoy-upstream-service-time']</con:path>
+              <con:element>x-envoy-upstream-service-time</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['content-security-policy']</con:path>
+              <con:element>content-security-policy</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>default-src 'self' 'unsafe-inline'</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['x-content-type-options']</con:path>
+              <con:element>x-content-type-options</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>nosniff</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['x-xss-protection']</con:path>
+              <con:element>x-xss-protection</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1;mode=block</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['x-frame-options']</con:path>
+              <con:element>x-frame-options</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>SAMEORIGIN</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['referrer-policy']</con:path>
+              <con:element>referrer-policy</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>strict-origin-when-cross-origin</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['content-type']</con:path>
+              <con:element>content-type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>application/json</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['#status#']</con:path>
+              <con:element>#status#</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>HTTP/1.1 400 Bad Request</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Headers']['strict-transport-security']</con:path>
+              <con:element>strict-transport-security</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>max-age=31622400; includeSubDomains</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{"Headers":{"date":"Fri, 14 Jan 2022 11:00:12 GMT","server":"istio-envoy","content-length":"153","x-envoy-upstream-service-time":"2","content-security-policy":"default-src 'self' 'unsafe-inline'","x-content-type-options":"nosniff","x-xss-protection":"1;mode=block","x-frame-options":"SAMEORIGIN","referrer-policy":"strict-origin-when-cross-origin","content-type":"application/json","#status#":"HTTP/1.1 400 Bad Request","strict-transport-security":"max-age=31622400; includeSubDomains"}}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-toParty" value=""/>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="X-VUM-viaParty" value=""/>
+          <con:entry key="X-VUM-berichtVersie" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

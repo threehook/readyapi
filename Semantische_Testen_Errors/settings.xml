@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="63c2bfe3-e0e7-4d09-8f7e-20618b8891e7" name="Semantische_Testen_Errors" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="63c2bfe3-e0e7-4d09-8f7e-20618b8891e7fileName">Semantische_Testen_Errors</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

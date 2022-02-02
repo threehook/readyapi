@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="20af0dd2-5146-4d07-a1ac-e699def5fe11" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SEM_4_1_WP_UTR_TooManyMatches" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>Bij deze testcase moet je eerst het maximumaantalResultaten van een bron op 1 instellen en aan het eind weer terugzetten naar de oorspronkelijke waarde.
+Vandaar dat deze standaard op disabled staat.</con:description>
+  <con:settings>
+    <con:setting id="282f6af9-9063-4ade-9129-8579d2aa5aa0fileName">TC_SEM_1_4_WP_TooManyMatches</con:setting>
+    <con:setting id="20af0dd2-5146-4d07-a1ac-e699def5fe11fileName">TC_SEM_4_1_WP_UTR_TooManyMatches</con:setting>
+  </con:settings>
+  <con:testStep type="manualTestStep" name="ManualSetMaximumResultaten1" id="cf5c66ef-ed0d-4520-b437-38cf0f5b2137">
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getMatches" id="6035c092-bba5-4e39-aade-dc4b4c0c2d42">
+    <con:settings/>
+    <con:config service="99.6 VUM API BRON Utr WerkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatchesWerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getMatches" id="d1bfa3a3-92fd-40ad-a4cf-72d2d8f08056" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.example.com/v1</con:endpoint>
+        <con:request>{
+  "vraagObject" : {
+    "indicatieLdrRegistratie" : 0,
+    "indicatieBeschikbaarheidContactgegevens" : 0,
+    "voorkeursland" : [ {
+      "landencodeIso" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+    } ],
+    "mobiliteit" : {
+      "bemiddelingspostcode" : "3511",
+      "maximaleReisafstand" : 999,
+      "maximaleReistijd" : 9
+    },
+    "flexibiliteit" : {
+      "codeRegiostraal" : 0,
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"
+    },
+    "werktijden" : {
+      "aantalWerkurenPerWeekMinimaal" : 0,
+      "aantalWerkurenPerWeekMaximaal" : 0,
+      "indicatieKantoortijden" : 0
+    },
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "s",
+      "codeTypeOvereenkomst" : "st"
+    } ],
+    "arbeidsmarktkwalificatie" : {
+      "codeWerkEnDenkniveauWerkzoekende" : 0,
+      "vakvaardigheid" : [ {
+        "omschrijving" : "string"
+      } ],
+      "taalbeheersing" : [ {
+        "codeTaal" : "st",
+        "codeNiveauTaalbeheersingMondeling" : 0,
+        "codeNiveauTaalbeheersingSchriftelijk" : 0,
+        "codeNiveauTaalbeheersingLezen" : 0,
+        "codeNiveauTaalbeheersingLuisteren" : 0
+      } ],
+      "gedragscompetentie" : [ {
+        "codeGedragscompetentie" : 0,
+        "omschrijvingGedragscompetentie" : "string",
+        "codeBeheersingGedragscompetentie" : 0
+      } ],
+      "rijbewijs" : [ {
+        "codeSoortRijbewijs" : "str"
+      } ],
+      "cursus" : [ {
+        "naamCursus" : "max1result",
+        "datumCertificaat" : "2015-07-20"
+      } ],
+      "opleiding" : [ {
+        "codeNiveauOpleiding" : 0,
+        "indicatieDiploma" : 0,
+        "datumDiploma" : "2015-07-20",
+        "opleidingsnaam" : {
+          "codeOpleidingsnaam" : "string",
+          "omschrijvingOpleidingsnaam" : "string"
+        }
+      } ],
+      "werkervaring" : [ {
+        "datumAanvangWerkzaamheden" : "2015-07-20",
+        "datumEindeWerkzaamheden" : "2015-07-20",
+        "naamOrganisatie" : "string",
+        "beroep" : {
+          "codeBeroepsnaam" : "string",
+          "omschrijvingBeroepsnaam" : "string"
+        }
+      } ]
+    },
+    "sector" : [ {
+      "codeSbi" : 0
+    } ],
+    "bemiddelingsberoep" : [ {
+      "codeBeroepsnaam" : "string",
+      "omschrijvingBeroepsnaam" : "string"
+    } ]
+  }
+}</con:request>
+        <con:originalUri>http://testing-bron-2.westeurope.azurecontainer.io/api/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d4570264-2abd-429e-887d-712041fe93dc" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="a740b4d6-c42a-4a83-a0ea-b29013a1bc1b" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="assertLessThan2" id="bb62c7b1-6b4a-4243-bf74-30bc2a3c39c0">
+    <con:settings/>
+    <con:config>
+      <script>import groovy.json.*;
+import groovy.util.*;
+def response = context.response;
+log.info(response.toString())
+def responseObject = new JsonSlurper().parseText(response)
+if (responseObject.size() > 1) {
+	log.info("Aantal aanwezige matches (" + responseObject.size() + ") > 1 (maxlimiet toegestane aantal)");
+	assert false;
+} else {
+	log.info("Aantal aanwezige matches " + responseObject.size() + " is &lt;= 1 (maxlimiet toegestane aantal)");
+	assert true;
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="setMaximumResultatenWaardeTerug" id="c8aeca17-a091-4bea-b369-c991598405b9">
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>repeat</con:name>
+      <con:value>0</con:value>
+    </con:property>
+    <con:property>
+      <con:name>matches1Aanwezig</con:name>
+      <con:value>1</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testCase>

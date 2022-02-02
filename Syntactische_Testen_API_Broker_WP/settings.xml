@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="1f6674ef-1311-4ea1-92be-4b9c4068c7e9" name="Syntactische_Testen_API_Broker_WP" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1f6674ef-1311-4ea1-92be-4b9c4068c7e9fileName">Syntactische_Testen_API_Broker_WP</con:setting>
+  </con:settings>
+  <con:runType>PARALLELL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

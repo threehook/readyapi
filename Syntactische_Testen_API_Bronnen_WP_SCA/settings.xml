@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="06fc2cbf-ce17-4922-a404-b323d08afaaa" name="Syntactische_Testen_API_Bronnen_WP_SCA" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="06fc2cbf-ce17-4922-a404-b323d08afaaafileName">Syntactische_Testen_API_Bronnen_WP_SCA</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

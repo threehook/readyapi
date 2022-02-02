@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/vacatures/{idVacature}" path="/vacatures/{idVacature}" id="05495cc0-657e-4814-8d9d-1523bf3b03f7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="05495cc0-657e-4814-8d9d-1523bf3b03f7fileName">%2Fvacatures%2F%7BidVacature%7D</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>idVacature</con:name>
+      <con:value/>
+      <con:style>TEMPLATE</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="get_zoek_matches" id="fd6ccee0-375e-4895-9d0a-42ae1d843cfa" method="GET">
+    <con:description>Detail aanvraag zoekprofiel</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "maximumAantalResultatenBereikt" : true,
+  "matches" : [ {
+    "idVacature" : "string",
+    "naamVacature" : "string",
+    "nummerVacature" : "string",
+    "omschrijvingVacature" : "string",
+    "codeWerkEnDenkniveauMinimaal" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "sluitingsDatumVacature" : "2015-07-20",
+    "sollicitatiewijze" : [ {
+      "codeSollicitatieWijze" : "string"
+    } ],
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "werkervaring" : [ {
+      "aantalJarenWerkzaamInBeroep" : 0
+    } ],
+    "rijbewijs" : [ {
+      "codeSoortRijbewijs" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0,
+      "codeVervoermiddel" : 0
+    } ],
+    "opleiding" : [ {
+      "codeNiveauOpleiding" : 0,
+      "indicatieDiploma" : 0,
+      "opleidingsnaam" : {
+        "codeOpleidingsnaam" : "string",
+        "omschrijvingOpleidingsnaam" : "string",
+        "naamOpleidingOngecodeerd" : "string",
+        "omschrijvingOpleiding" : "string"
+      }
+    } ],
+    "gedragscompetentie" : [ {
+      "codeGedragscompetentie" : 0,
+      "omschrijvingGedragsCompetentie" : "string",
+      "codeBeheersingGedragscompetentie" : 0
+    } ],
+    "vakvaardigheid" : [ {
+      "omschrijving" : "string"
+    } ],
+    "taalbeheersing" : [ {
+      "codeTaal" : "string",
+      "codeNiveauTaalbeheersingModeling" : 0,
+      "codeNiveauTaalbeheersingSchriftelijk" : 0,
+      "codeNiveauTaalbeheersingLezen" : 0,
+      "codeTaalbeheersingLuisteren" : 0
+    } ]
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="fd4571d2-2d93-4b7f-9844-12e18aabdbea" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="idVacature" value=""/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+</con:resource>

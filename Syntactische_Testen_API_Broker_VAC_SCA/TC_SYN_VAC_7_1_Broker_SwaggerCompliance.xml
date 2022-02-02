@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="8067b47e-6a87-4982-81ab-39fc6404ec62" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SYN_VAC_7_1_Broker_SwaggerCompliance" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="dee55675-cc3c-4ed3-b829-a9e30c0d9750fileName">TC_SYN_VAC_7_1_Broker_SwaggerCompliance</con:setting>
+    <con:setting id="8067b47e-6a87-4982-81ab-39fc6404ec62fileName">TC_SYN_VAC_7_1_Broker_SwaggerCompliance</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="POST WP Matches SwaggerComplianceAssertion" id="7c3b2ec1-201a-47cb-a6da-e9b54a76388f">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker vacatures" resourcePath="/vacatures/matches" methodName="MatchesVacatures" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="POST WP Matches SwaggerComplianceAssertion" id="e6068d12-a8f7-480b-afb4-6ddcd58eb3e5" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request>{\r
+  "callbackURL" : "test.com",
+  "postcode" : "2552ab",
+  "straal" : 50,
+  "vraagObject" : {\r
+    "codeWerkEnDenkniveauMinimaal" : "string",\r
+    "indicatieLdrRegistratie" : 0,\r
+    "sluitingsDatumVacature" : "2015-07-20",\r
+    "sollicitatiewijze" : [ {\r
+      "codeSollicitatiewijze" : "string"\r
+    } ],\r
+    "werkgever" : {\r
+      "adresHouding" : [ {\r
+        "codeFunctieAdres" : "string",\r
+        "adres" : {\r
+          "adresBuitenland" : {\r
+            "landencodeIso" : "string"\r
+          }\r
+        }\r
+      } ],\r
+      "sector" : [ {\r
+        "codeSbi" : 0\r
+      } ]\r
+    },\r
+    "sector" : {\r
+      "codeSbi" : 0\r
+    },\r
+    "arbeidsVoorwaarden" : {\r
+      "datumAanvangWerkzaamheden" : "2015-07-20",\r
+      "datumEindeWerkzaamheden" : "2015-07-20",\r
+      "salarisIndicatie" : "string"\r
+    },\r
+    "contractvorm" : [ {\r
+      "codeTypeArbeidscontract" : "string",\r
+      "codeTypeOvereenkomst" : "string"\r
+    } ],\r
+    "beroep" : {\r
+      "beroepsnaamGecodeerd" : {\r
+        "codeBeroepsnaam" : "string",\r
+        "omschrijvingBeroepsnaam" : "string"\r
+      }\r
+    },\r
+    "werkervaring" : [ {\r
+      "aantalJarenWerkzaamInBeroep" : 0\r
+    } ],\r
+    "rijbewijs" : [ {\r
+      "codeSoortRijbewijs" : "string"\r
+    } ],\r
+    "vervoermiddel" : [ {\r
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,\r
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0\r
+    } ],\r
+    "flexibiliteit" : {\r
+      "codeRegiostraal" : 0,\r
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,\r
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",\r
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"\r
+    },\r
+    "werktijden" : {\r
+      "aantalWerkurenPerWeekMinimaal" : 0,\r
+      "aantalWerkurenPerWeekMaximaal" : 0,\r
+      "indicatieKantoortijden" : 0\r
+    },\r
+    "cursus" : [ {\r
+      "naamCursus" : "string"\r
+    } ],\r
+    "opleiding" : [ {\r
+      "codeNiveauOpleiding" : 0,\r
+      "indicatieDiploma" : 0,\r
+      "opleidingsnaam" : {\r
+        "opleidingsnaamGecodeerd" : {\r
+          "codeOpleidingsnaam" : "9999999999",\r
+          "omschrijvingOpleidingsnaam" : "string"\r
+        }\r
+      }\r
+    } ],\r
+    "gedragscompetentie" : [ {\r
+      "codeGedragscompetentie" : "9999999999",\r
+      "omschrijvingGedragscompetentie" : "string",\r
+      "codeBeheersingGedragscompetentie" : 0\r
+    } ],\r
+    "vakvaardigheid" : [ {\r
+      "omschrijving" : "string"\r
+    } ],\r
+    "taalbeheersing" : [ {\r
+      "codeTaal" : "string",\r
+      "codeNiveauTaalbeheersingMondeling" : 0,\r
+      "codeNiveauTaalbeheersingSchriftelijk" : 0,\r
+      "codeNiveauTaalbeheersingLezen" : 0,\r
+      "codeNiveauTaalbeheersingLuisteren" : 0\r
+    } ]\r
+  }\r
+}</con:request>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/vacatures/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="2a207016-4a46-4386-8c41-10847589a754">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="SwaggerComplianceAssertion" name="Swagger Compliance Assertion" id="cd5474dd-509d-4a09-b1f9-c97a0e4ce61f">
+          <con:configuration>
+            <swaggerUrl>https://gitlab.com/api/v4/projects/31542488/repository/files/OAS_Contracten%2FVUM-Bemiddelaar-WerkzoekendeProfielen-0.99.6.yaml/raw?ref=main&amp;private_token=glpat-E1E4AdFos-iLdPCK7vYA</swaggerUrl>
+            <strictMode>true</strictMode>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

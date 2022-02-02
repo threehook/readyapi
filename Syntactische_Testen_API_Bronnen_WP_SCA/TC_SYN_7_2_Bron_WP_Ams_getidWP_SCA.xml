@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c112d782-9247-4f79-99e9-7172bf740b2b" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SYN_7_2_Bron_WP_Ams_getidWP_SCA" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@disable_log">false</con:setting>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@errors_only">false</con:setting>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@follow">true</con:setting>
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">false</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="f49ca2af-bf89-4384-a7f6-7e4eedb3943bfileName">TC_SYN_7_2_Bron_WP_Ams_getidWP_SCA</con:setting>
+    <con:setting id="c112d782-9247-4f79-99e9-7172bf740b2bfileName">TC_SYN_7_2_Bron_WP_Ams_getidWP_SCA</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="POST clear WP matches" id="0c5fb813-b735-44da-a319-ed2b3053c85b">
+    <con:settings/>
+    <con:config service="API testing-bron" resourcePath="/api/v1/werkzoekendeProfielen/clear" methodName="post_clear_matches" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="POST clear WP matches" id="07aafb46-7c55-4de6-97ba-3fbf670368df" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+        <con:request>{
+  "indicatieLdrRegistratie" : 0,
+  "indicatieBeschikbaarheidContactgegevens" : 0,
+  "voorkeursland" : [ {
+    "landencodeIso" : "string"
+  } ],
+  "vervoermiddel" : [ {
+    "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+    "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+  } ],
+  "contractvorm" : [ {
+    "codeTypeArbeidscontract" : "string",
+    "codeTypeOvereenkomst" : "string"
+  } ],
+  "sector" : [ {
+    "codeSbi" : 0
+  } ],
+  "bemiddelingsberoep" : [ {
+    "codeBeroepsnaam" : "string",
+    "omschrijvingBeroepsnaam" : "string",
+    "naamBeroepOngecodeerd" : "string"
+  } ]
+}</con:request>
+        <con:originalUri>http://testing-bron.westeurope.azurecontainer.io/api/v1/werkzoekendeProfielen/clear</con:originalUri>
+        <con:assertion type="DataAndMetadataAssertion" id="a0712ba9-cf33-447c-8dff-51e7283ddab9" name="Smart Assertion">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>//Response[1]</con:path>
+              <con:element>Response</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//Response[1]/@null</con:path>
+              <con:element>@null</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>true</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage>&lt;Response null="true"/></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-toParty" value=""/>
+          <con:entry key="X-VUM-fromParty" value=""/>
+          <con:entry key="X-VUM-viaParty" value=""/>
+          <con:entry key="X-VUM-SUWIparty" value=""/>
+          <con:entry key="X-VUM-berichtVersie" value=""/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="POST WP Matches" id="c369a03b-8e4c-4db9-88ad-10b7853d88e9">
+    <con:settings/>
+    <con:config service="99.6 VUM API BRON Ams WerkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatchesWerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="POST WP Matches" id="a86d716d-33e6-401a-ba15-b5c4556b89d5" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.example.com/v1</con:endpoint>
+        <con:request>{
+  "vraagObject": {
+    "indicatieLdrRegistratie": 9,
+    "indicatieBeschikbaarheidContactgegevens": 9,
+    "voorkeursland": [
+      {
+        "landencodeIso": "st"
+      }
+    ],
+    "vervoermiddel": [
+      {
+        "indicatieBeschikbaarVoorUitvoeringWerk": 9,
+        "indicatieBeschikbaarVoorWoonWerkverkeer": 9
+      }
+    ],
+    "mobiliteit": {
+      "bemiddelingspostcode": "1234AB",
+      "maximaleReisafstand": 999,
+      "maximaleReistijd": 999
+    },
+    "flexibiliteit": {
+      "codeRegiostraal": 9,
+      "indicatieOnregelmatigWerkOfPloegendienst": 9,
+      "datumAanvangBeschikbaarVoorWerk": "2022-01-11",
+      "datumEindeBeschikbaarVoorWerk": "2022-01-11"
+    },
+    "werktijden": {
+      "aantalWerkurenPerWeekMinimaal": 99,
+      "aantalWerkurenPerWeekMaximaal": 99,
+      "indicatieKantoortijden": 9
+    },
+    "contractvorm": [
+      {
+        "codeTypeArbeidscontract": "s",
+        "codeTypeOvereenkomst": "st"
+      }
+    ],
+    "arbeidsmarktkwalificatie": {
+      "codeWerkEnDenkniveauWerkzoekende": 9,
+      "vakvaardigheid": [
+        {
+          "omschrijving": "string"
+        }
+      ],
+      "taalbeheersing": [
+        {
+          "codeTaal": "str",
+          "codeNiveauTaalbeheersingMondeling": 9,
+          "codeNiveauTaalbeheersingSchriftelijk": 9,
+          "codeNiveauTaalbeheersingLezen": 9,
+          "codeNiveauTaalbeheersingLuisteren": 9
+        }
+      ],
+      "gedragscompetentie": [
+        {
+          "codeGedragscompetentie": "9999999999",
+          "omschrijvingGedragscompetentie": "string",
+          "codeBeheersingGedragscompetentie": 9
+        }
+      ],
+      "rijbewijs": [
+        {
+          "codeSoortRijbewijs": "str"
+        }
+      ],
+      "cursus": [
+        {
+          "naamCursus": "string",
+          "datumCertificaat": "2022-01-11"
+        }
+      ],
+      "opleiding": [
+        {
+          "codeNiveauOpleiding": 9,
+          "indicatieDiploma": 9,
+          "datumDiploma": "2022-01-11",
+          "opleidingsnaam": {
+            "opleidingsnaamGecodeerd": {
+              "codeOpleidingsnaam": "9999999999",
+              "omschrijvingOpleidingsnaam": "string"
+            }
+          }
+        }
+      ],
+      "werkervaring": [
+        {
+          "datumAanvangWerkzaamheden": "2022-01-11",
+          "datumEindeWerkzaamheden": "2022-01-11",
+          "naamOrganisatie": "string",
+          "beroep": {
+            "beroepsnaamGecodeerd": {
+              "codeBeroepsnaam": "string",
+              "omschrijvingBeroepsnaam": "string"
+            }
+          }
+        }
+      ]
+    },
+    "sector": [
+      {
+        "codeSbi": 99999
+      }
+    ],
+    "bemiddelingsberoep": [
+      {
+        "beroepsnaamGecodeerd": {
+          "codeBeroepsnaam": "string",
+          "omschrijvingBeroepsnaam": "string"
+        }
+      },
+      {
+        "beroepsnaamOngecodeerd": {
+          "naamBeroepOngecodeerd": "string"
+        }
+      }
+    ]
+  }
+}</con:request>
+        <con:originalUri>http://testing-bron.westeurope.azurecontainer.io/api/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1af80c6b-c333-477e-90d3-5514bb814adf" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+          <con:entry>X-VUM-SUWIparty</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="6519c6fd-5381-4343-bdeb-fde8da999d6a">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>idWerkzoekende</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>POST WP Matches</con:sourceStep>
+        <con:sourcePath>$['matches'][0]['idWerkzoekende']</con:sourcePath>
+        <con:targetType>werkzoekendeID</con:targetType>
+        <con:targetStep>Property werkzoekendeID</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Property werkzoekendeID" id="9b1b9063-4ed9-4547-85b1-dcadfe06509f">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>werkzoekendeID</con:name>
+          <con:value>2fdf8848-152b-4fde-b66d-562ee1bbcb65</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GET idWP SwaggerComplianceAssertion" id="83fe8ffa-1ab3-4cd2-8571-983bff3c30ea">
+    <con:settings/>
+    <con:config service="99.6 VUM API BRON Ams WerkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/{idWerkzoekende}" methodName="getWerkzoekendeProfiel" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GET idWP SwaggerComplianceAssertion" id="3dea3c47-1894-441c-8fb3-2eefe2cf12c0" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8088/</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://testing-bron.westeurope.azurecontainer.io/api/v1/werkzoekendeProfielen/12f14b70-553d-450b-8683-2a5a7fe7898c</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1e2c1c1b-a078-4a91-8426-93793a905b22" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="ecbf0fa0-20a5-43f5-beed-eaf27f37d831" name="Match content of [idWerkzoekende]">
+          <con:configuration>
+            <path>$['idWerkzoekende']</path>
+            <content>${Property werkzoekendeID#werkzoekendeID}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="SwaggerComplianceAssertion" id="c53fc6bb-01c7-4551-843b-50696bd4dd72" name="Swagger Compliance Assertion">
+          <con:configuration>
+            <swaggerUrl>https://gitlab.com/api/v4/projects/31542488/repository/files/OAS_Contracten_json%2FVUM-Bron-WerkzoekendeProfielen-0.99.6.json/raw?ref=feature%2Fjson&amp;private_token=glpat-E1E4AdFos-iLdPCK7vYA</swaggerUrl>
+            <strictMode>true</strictMode>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="idWerkzoekende" value="${Property werkzoekendeID#werkzoekendeID}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>idWerkzoekende</con:entry>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+          <con:entry>X-VUM-SUWIparty</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>datum</con:name>
+      <con:value>2017-06-22</con:value>
+    </con:property>
+    <con:property>
+      <con:name>response</con:name>
+      <con:value>{"maximumAantalResultatenBereikt":false,"matches":[{"idWerkzoekende":"d2ceb0fe-f8df-4882-b898-992844657469","indicatieLdrRegistratie":0,"indicatieBeschikbaarheidContactgegevens":1,"voorkeursland":[{"landencodeIso":"SC"}],"vervoermiddel":[{"indicatieBeschikbaarVoorUitvoeringWerk":1,"indicatieBeschikbaarVoorWoonWerkverkeer":0},{"indicatieBeschikbaarVoorUitvoeringWerk":0,"indicatieBeschikbaarVoorWoonWerkverkeer":0},{"indicatieBeschikbaarVoorUitvoeringWerk":1,"indicatieBeschikbaarVoorWoonWerkverkeer":0}],"mobiliteit":{"bemiddelingspostcode":"8026 AT","maximaleReisafstand":30,"maximaleReistijd":24},"flexibiliteit":{"codeRegiostraal":9,"indicatieOnregelmatigWerkOfPloegendienst":1,"datumAanvangBeschikbaarVoorWerk":"2016-01-29","datumEindeBeschikbaarVoorWerk":"2021-08-21"},"werktijden":{"aantalWerkurenPerWeekMinimaal":19,"aantalWerkurenPerWeekMaximaal":34,"indicatieKantoortijden":1},"contractvorm":[{"codeTypeArbeidscontract":"G","codeTypeOvereenkomst":"W"},{"codeTypeArbeidscontract":"7","codeTypeOvereenkomst":"J"},{"codeTypeArbeidscontract":"3","codeTypeOvereenkomst":"U"},{"codeTypeArbeidscontract":"6","codeTypeOvereenkomst":"B"}],"arbeidsmarktkwalificatie":{"codeWerkEnDenkniveauWerkzoekende":8,"vakvaardigheid":[{"omschrijving":"Ullam consequatur eius unde."},{"omschrijving":"Quos cupiditate sit distinctio minima repudiandae."},{"omschrijving":"Voluptatem assumenda neque accusantium."},{"omschrijving":"Eos saepe ratione dolorem numquam."}],"taalbeheersing":[{"codeTaal":"SO","codeNiveauTaalbeheersingMondeling":6,"codeNiveauTaalbeheersingSchriftelijk":0,"codeNiveauTaalbeheersingLezen":5,"codeNiveauTaalbeheersingLuisteren":0},{"codeTaal":"PW","codeNiveauTaalbeheersingMondeling":0,"codeNiveauTaalbeheersingSchriftelijk":3,"codeNiveauTaalbeheersingLezen":3,"codeNiveauTaalbeheersingLuisteren":4}],"gedragscompetentie":[],"rijbewijs":[{"codeSoortRijbewijs":"A"}],"cursus":[],"opleiding":[{"codeNiveauOpleiding":3,"indicatieDiploma":0,"datumDiploma":"2015-06-19","opleidingsnaam":{"codeOpleidingsnaam":349795,"omschrijvingOpleidingsnaam":"In optio rem sit hic."}},{"codeNiveauOpleiding":3,"indicatieDiploma":0,"datumDiploma":"2016-01-09","opleidingsnaam":{"naamOpleidingOngecodeerd":"Lemmens &amp; Janse","omschrijvingOpleiding":"Nostrum dignissimos vitae quas distinctio ducimus illo veritatis. Rem ratione repellendus ad. Accusamus ab inventore minima consequatur facilis doloribus. Consequuntur molestias eos qui minus autem culpa. Quae officiis illo facilis. Assumenda consequatur mollitia commodi suscipit. Dolorem quos repellat assumenda necessitatibus quibusdam. Nulla repellat ipsam perferendis delectus laudantium vitae. Accusantium quos non inventore. Aliquam at inventore iusto. Distinctio iste doloremque tempore adipisci esse harum."}},{"codeNiveauOpleiding":3,"indicatieDiploma":0,"datumDiploma":"2018-04-20","opleidingsnaam":{"naamOpleidingOngecodeerd":"Roosenboom &amp; de Gruijter","omschrijvingOpleiding":"Ut voluptates occaecati odio placeat sint. Aliquam voluptatibus eveniet debitis labore. Praesentium nobis accusantium nesciunt. Iste quidem distinctio at delectus et laborum. Reiciendis sequi minus officiis sequi illo porro. Mollitia perspiciatis quibusdam quaerat. Quos reiciendis inventore veniam voluptatum. Dolores doloremque facilis excepturi."}},{"codeNiveauOpleiding":2,"indicatieDiploma":0,"datumDiploma":"2015-07-25","opleidingsnaam":{"codeOpleidingsnaam":2278830,"omschrijvingOpleidingsnaam":"At est debitis assumenda."}}],"werkervaring":[{"datumAanvangWerkzaamheden":"2008-05-27","datumEindeWerkzaamheden":"2020-08-03","naamOrganisatie":"van Allemani\u00eb &amp; Lage","beroep":{"codeBeroepsnaam":"HWC525C3H","omschrijvingBeroepsnaam":"Est totam eaque praesentium esse accusamus vitae."}},{"datumAanvangWerkzaamheden":"2008-05-07","datumEindeWerkzaamheden":"2012-01-21","naamOrganisatie":"Unica","beroep":{"naamBeroepOngecodeerd":"Stichting Stamrood"}}]},"sector":[{"codeSbi":20779},{"codeSbi":52670}],"bemiddelingsberoep":[{"codeBeroepsnaam":"HFMS7S4N","omschrijvingBeroepsnaam":"Petroleum engineer","naamBeroepOngecodeerd":"Cytogeneticist"},{"codeBeroepsnaam":"Z456QN","omschrijvingBeroepsnaam":"Journalist, magazine","naamBeroepOngecodeerd":"Engineer, control and instrumentation"},{"codeBeroepsnaam":"HPMI5","omschrijvingBeroepsnaam":"Architectural technologist","naamBeroepOngecodeerd":"Designer, furniture"},{"codeBeroepsnaam":"NVT6BLJ","omschrijvingBeroepsnaam":"Administrator, charities\/voluntary organisations","naamBeroepOngecodeerd":"Outdoor activities\/education manager"}]},{"idWerkzoekende":"82d11c11-bd01-4c52-9065-646e7ec32fc0","indicatieLdrRegistratie":1,"indicatieBeschikbaarheidContactgegevens":0,"voorkeursland":[{"landencodeIso":"TT"},{"landencodeIso":"ZM"},{"landencodeIso":"AD"}],"vervoermiddel":[{"indicatieBeschikbaarVoorUitvoeringWerk":0,"indicatieBeschikbaarVoorWoonWerkverkeer":1},{"indicatieBeschikbaarVoorUitvoeringWerk":1,"indicatieBeschikbaarVoorWoonWerkverkeer":1}],"mobiliteit":{"bemiddelingspostcode":"1364CD","maximaleReisafstand":42,"maximaleReistijd":72},"flexibiliteit":{"codeRegiostraal":6,"indicatieOnregelmatigWerkOfPloegendienst":0,"datumAanvangBeschikbaarVoorWerk":"2014-01-17","datumEindeBeschikbaarVoorWerk":"2017-08-03"},"werktijden":{"aantalWerkurenPerWeekMinimaal":19,"aantalWerkurenPerWeekMaximaal":35,"indicatieKantoortijden":0},"contractvorm":[{"codeTypeArbeidscontract":"M","codeTypeOvereenkomst":"F"},{"codeTypeArbeidscontract":"Z","codeTypeOvereenkomst":"Y"},{"codeTypeArbeidscontract":"O","codeTypeOvereenkomst":"3"},{"codeTypeArbeidscontract":"Z","codeTypeOvereenkomst":"V"}],"arbeidsmarktkwalificatie":{"codeWerkEnDenkniveauWerkzoekende":6,"vakvaardigheid":[{"omschrijving":"Voluptatibus sed saepe deleniti nulla placeat odio."},{"omschrijving":"Illum quisquam praesentium ratione corporis odit nesciunt."},{"omschrijving":"Consectetur laudantium eligendi impedit."}],"taalbeheersing":[{"codeTaal":"UY","codeNiveauTaalbeheersingMondeling":7,"codeNiveauTaalbeheersingSchriftelijk":5,"codeNiveauTaalbeheersingLezen":1,"codeNiveauTaalbeheersingLuisteren":1},{"codeTaal":"LA","codeNiveauTaalbeheersingMondeling":5,"codeNiveauTaalbeheersingSchriftelijk":8,"codeNiveauTaalbeheersingLezen":4,"codeNiveauTaalbeheersingLuisteren":1},{"codeTaal":"CM","codeNiveauTaalbeheersingMondeling":5,"codeNiveauTaalbeheersingSchriftelijk":1,"codeNiveauTaalbeheersingLezen":0,"codeNiveauTaalbeheersingLuisteren":5},{"codeTaal":"LA","codeNiveauTaalbeheersingMondeling":9,"codeNiveauTaalbeheersingSchriftelijk":9,"codeNiveauTaalbeheersingLezen":0,"codeNiveauTaalbeheersingLuisteren":1}],"gedragscompetentie":[{"codeGedragscompetentie":4,"omschrijvingGedragscompetentie":"Possimus doloremque corrupti optio consequatur illum impedit.","codeBeheersingGedragscompetentie":4},{"codeGedragscompetentie":5,"omschrijvingGedragscompetentie":"Dolor asperiores commodi ullam.","codeBeheersingGedragscompetentie":4},{"codeGedragscompetentie":9,"omschrijvingGedragscompetentie":"Sequi minus tempora harum voluptates.","codeBeheersingGedragscompetentie":8}],"rijbewijs":[{"codeSoortRijbewijs":"D"},{"codeSoortRijbewijs":"A"},{"codeSoortRijbewijs":"B"},{"codeSoortRijbewijs":"A"}],"cursus":[{"naamCursus":"Siem Sestig","datumCertificaat":"2020-08-27"},{"naamCursus":"Rick van de Noordmark","datumCertificaat":"2017-08-23"},{"naamCursus":"Xavi Ramaker","datumCertificaat":"2018-06-05"},{"naamCursus":"Suus Ghoerle","datumCertificaat":"2019-03-29"}],"opleiding":[{"codeNiveauOpleiding":1,"indicatieDiploma":1,"datumDiploma":"2013-03-18","opleidingsnaam":{"naamOpleidingOngecodeerd":"Ligtvoet &amp; Schwartsbach","omschrijvingOpleiding":"Impedit incidunt expedita culpa. Pariatur facere reiciendis et. Alias corporis necessitatibus cupiditate eaque veniam sapiente. Occaecati quo aliquid occaecati iusto repellendus accusamus. Debitis repellendus sunt assumenda in ullam in tempore. Eos quo maxime ipsa sed et quas. Ut ratione voluptate soluta mollitia. Distinctio odio rerum dolorum odit neque. Architecto necessitatibus saepe omnis eveniet voluptas ullam. Possimus rerum labore ipsum vel cupiditate eos odit."}},{"codeNiveauOpleiding":0,"indicatieDiploma":0,"datumDiploma":"2012-06-18","opleidingsnaam":{"codeOpleidingsnaam":3022784,"omschrijvingOpleidingsnaam":"Aliquam cupiditate saepe beatae architecto vitae."}},{"codeNiveauOpleiding":2,"indicatieDiploma":1,"datumDiploma":"2016-04-07","opleidingsnaam":{"naamOpleidingOngecodeerd":"Steinmeiern BV","omschrijvingOpleiding":"Dolore ipsam dolorem ratione. Iste facere recusandae ab voluptatem molestias nesciunt. Possimus provident repellat illo dolorem harum. Reprehenderit ut itaque repudiandae aliquid ut inventore. Ab beatae nemo quo nemo aut. Veniam laboriosam asperiores atque ipsam id. Explicabo blanditiis aspernatur possimus ut inventore. Quae quasi distinctio suscipit rerum. Quisquam eveniet quae vel. Esse veniam minima vel illum eligendi. Impedit enim fugit aut natus. Itaque id quasi facilis. Voluptatibus molestiae nulla rem quod quis."}}],"werkervaring":[{"datumAanvangWerkzaamheden":"2008-02-23","datumEindeWerkzaamheden":"2019-03-15","naamOrganisatie":"Royal Rijntjes","beroep":{"naamBeroepOngecodeerd":"Stichting Brisee"}},{"datumAanvangWerkzaamheden":"2010-01-11","datumEindeWerkzaamheden":"2017-09-28","naamOrganisatie":"Rietveld &amp; van Stralen","beroep":{"codeBeroepsnaam":"3PK8WUIR4","omschrijvingBeroepsnaam":"Delectus alias omnis harum provident ipsum tenetur."}}]},"sector":[{"codeSbi":42923},{"codeSbi":28041},{"codeSbi":36302}],"bemiddelingsberoep":[{"codeBeroepsnaam":"C","omschrijvingBeroepsnaam":"Public relations officer","naamBeroepOngecodeerd":"Pharmacologist"},{"codeBeroepsnaam":"49KB","omschrijvingBeroepsnaam":"Marine scientist","naamBeroepOngecodeerd":"Engineer, maintenance (IT)"},{"codeBeroepsnaam":"4574O380Y","omschrijvingBeroepsnaam":"Plant breeder\/geneticist","naamBeroepOngecodeerd":"Secondary school teacher"},{"codeBeroepsnaam":"4345JV2GY","omschrijvingBeroepsnaam":"Insurance claims handler","naamBeroepOngecodeerd":"Hospital doctor"}]}]}</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>df6220af-bf73-4aa0-a465-efd9da6391cc</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>d73f44d6-4e45-4c70-904f-f0ce06cf678b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e0e249cf-51e8-4c2b-b738-33af65022a80</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1aca7684-03b4-46ca-98d6-759c35ee28ad</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>d124ff29-51fe-4a37-b3db-423dfc2b7102</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>55bbe18e-bb55-40d7-9ffd-bee91b834630</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>17ea3a3c-9c93-45de-8969-6e0c3bef7111</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a4714732-2438-42eb-8331-0b8f70f2eda9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>804e9473-62af-4655-a4e3-8034a529def7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>26378607-d3ff-484b-b5e9-45ae0d8f035a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0200e0ac-1a91-43ef-88d9-5a20094b2ce0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>77e9c1a9-73f2-4392-bfd9-165b7f5daa1a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/utility/log" path="/utility/log" id="286a3471-46a1-4219-ab21-5962a91e3422" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="286a3471-46a1-4219-ab21-5962a91e3422fileName">%2Futility%2Flog</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="get_log_operations" id="5d380115-d815-4dab-bbec-0d7edd055c0f" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="fac3bc48-d7e2-4d27-953b-4ad96b15c749" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-bron-2.westeurope.azurecontainer.io</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

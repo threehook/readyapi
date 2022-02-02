@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="23a6544b-e8f7-444e-ac87-b8c59ed955b1" name="Syntactische_Testen_API_Bron_VAC_Ams" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="23a6544b-e8f7-444e-ac87-b8c59ed955b1fileName">Syntactische_Testen_API_Bron_VAC_Ams</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

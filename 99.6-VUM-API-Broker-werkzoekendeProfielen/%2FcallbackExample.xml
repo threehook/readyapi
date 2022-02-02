@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/callbackExample" path="/callbackExample" id="954960c3-a11f-440f-b7df-5a3904e4cd1a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="954960c3-a11f-440f-b7df-5a3904e4cd1afileName">%2FcallbackExample</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="callbackExample" id="4ce46e11-8656-4f40-999e-466212498aa0" method="POST">
+    <con:description>Voorbeeld voor de callback methode, alleen om te laten zien hoe de echte Callback er uit ziet!</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>X-VUM-berichtVersie</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-VUM-toParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter required="false">
+        <con:name>X-VUM-viaParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-VUM-vraagID</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="REQUEST" id="">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status/>
+      <con:params/>
+      <con:description xsi:nil="true"/>
+      <con:sampleContent>{
+  "vraagID" : "string",
+  "maximumAantalResultatenBereikt" : true,
+  "matches" : [ {
+    "vumID" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "indicatieBeschikbaarheidContactgegevens" : 0,
+    "voorkeursland" : [ {
+      "landencodeIso" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+    } ],
+    "mobiliteit" : {
+      "bemiddelingspostcode" : "1234AB",
+      "maximaleReisafstand" : 0,
+      "maximaleReistijd" : 0
+    },
+    "flexibiliteit" : {
+      "codeRegiostraal" : 0,
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"
+    },
+    "werktijden" : {
+      "aantalWerkurenPerWeekMinimaal" : 0,
+      "aantalWerkurenPerWeekMaximaal" : 0,
+      "indicatieKantoortijden" : 0
+    },
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "arbeidsmarktkwalificatie" : {
+      "codeWerkEnDenkniveauWerkzoekende" : 0,
+      "vakvaardigheid" : [ {
+        "omschrijving" : "string"
+      } ],
+      "taalbeheersing" : [ {
+        "codeTaal" : "string",
+        "codeNiveauTaalbeheersingMondeling" : 0,
+        "codeNiveauTaalbeheersingSchriftelijk" : 0,
+        "codeNiveauTaalbeheersingLezen" : 0,
+        "codeNiveauTaalbeheersingLuisteren" : 0
+      } ],
+      "gedragscompetentie" : [ {
+        "codeGedragscompetentie" : "9999999999",
+        "omschrijvingGedragscompetentie" : "string",
+        "codeBeheersingGedragscompetentie" : 0
+      } ],
+      "rijbewijs" : [ {
+        "codeSoortRijbewijs" : "string"
+      } ],
+      "cursus" : [ {
+        "naamCursus" : "string",
+        "datumCertificaat" : "2015-07-20"
+      } ],
+      "opleiding" : [ {
+        "codeNiveauOpleiding" : 0,
+        "indicatieDiploma" : 0,
+        "datumDiploma" : "2015-07-20",
+        "opleidingsnaam" : {
+          "opleidingsnaamGecodeerd" : {
+            "codeOpleidingsnaam" : "9999999999",
+            "omschrijvingOpleidingsnaam" : "string"
+          }
+        }
+      } ],
+      "werkervaring" : [ {
+        "datumAanvangWerkzaamheden" : "2015-07-20",
+        "datumEindeWerkzaamheden" : "2015-07-20",
+        "naamOrganisatie" : "string",
+        "beroep" : {
+          "beroepsnaamGecodeerd" : {
+            "codeBeroepsnaam" : "string",
+            "omschrijvingBeroepsnaam" : "string"
+          }
+        }
+      } ]
+    },
+    "sector" : [ {
+      "codeSbi" : 0
+    } ],
+    "bemiddelingsberoep" : [ {
+      "beroepsnaamGecodeerd" : {
+        "codeBeroepsnaam" : "string",
+        "omschrijvingBeroepsnaam" : "string"
+      }
+    } ]
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="d863c077-cbab-44db-a6d4-1a96b3300773" mediaType="application/json" postQueryString="false">
+      <con:description>Voorbeeld voor de callback methode, alleen om te laten zien hoe de echte Callback er uit ziet!</con:description>
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+      <con:request>{\r
+  "vraagID" : "string",\r
+  "maximumAantalResultatenBereikt" : true,\r
+  "matches" : [ {\r
+    "vumID" : "string",\r
+    "indicatieLdrRegistratie" : 0,\r
+    "indicatieBeschikbaarheidContactgegevens" : 0,\r
+    "voorkeursland" : [ {\r
+      "landencodeIso" : "string"\r
+    } ],\r
+    "vervoermiddel" : [ {\r
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,\r
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0\r
+    } ],\r
+    "mobiliteit" : {\r
+      "bemiddelingspostcode" : "1234AB",\r
+      "maximaleReisafstand" : 0,\r
+      "maximaleReistijd" : 0\r
+    },\r
+    "flexibiliteit" : {\r
+      "codeRegiostraal" : 0,\r
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,\r
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",\r
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"\r
+    },\r
+    "werktijden" : {\r
+      "aantalWerkurenPerWeekMinimaal" : 0,\r
+      "aantalWerkurenPerWeekMaximaal" : 0,\r
+      "indicatieKantoortijden" : 0\r
+    },\r
+    "contractvorm" : [ {\r
+      "codeTypeArbeidscontract" : "string",\r
+      "codeTypeOvereenkomst" : "string"\r
+    } ],\r
+    "arbeidsmarktkwalificatie" : {\r
+      "codeWerkEnDenkniveauWerkzoekende" : 0,\r
+      "vakvaardigheid" : [ {\r
+        "omschrijving" : "string"\r
+      } ],\r
+      "taalbeheersing" : [ {\r
+        "codeTaal" : "string",\r
+        "codeNiveauTaalbeheersingMondeling" : 0,\r
+        "codeNiveauTaalbeheersingSchriftelijk" : 0,\r
+        "codeNiveauTaalbeheersingLezen" : 0,\r
+        "codeNiveauTaalbeheersingLuisteren" : 0\r
+      } ],\r
+      "gedragscompetentie" : [ {\r
+        "codeGedragscompetentie" : "9999999999",\r
+        "omschrijvingGedragscompetentie" : "string",\r
+        "codeBeheersingGedragscompetentie" : 0\r
+      } ],\r
+      "rijbewijs" : [ {\r
+        "codeSoortRijbewijs" : "string"\r
+      } ],\r
+      "cursus" : [ {\r
+        "naamCursus" : "string",\r
+        "datumCertificaat" : "2015-07-20"\r
+      } ],\r
+      "opleiding" : [ {\r
+        "codeNiveauOpleiding" : 0,\r
+        "indicatieDiploma" : 0,\r
+        "datumDiploma" : "2015-07-20",\r
+        "opleidingsnaam" : {\r
+          "opleidingsnaamGecodeerd" : {\r
+            "codeOpleidingsnaam" : "9999999999",\r
+            "omschrijvingOpleidingsnaam" : "string"\r
+          }\r
+        }\r
+      } ],\r
+      "werkervaring" : [ {\r
+        "datumAanvangWerkzaamheden" : "2015-07-20",\r
+        "datumEindeWerkzaamheden" : "2015-07-20",\r
+        "naamOrganisatie" : "string",\r
+        "beroep" : {\r
+          "beroepsnaamGecodeerd" : {\r
+            "codeBeroepsnaam" : "string",\r
+            "omschrijvingBeroepsnaam" : "string"\r
+          }\r
+        }\r
+      } ]\r
+    },\r
+    "sector" : [ {\r
+      "codeSbi" : 0\r
+    } ],\r
+    "bemiddelingsberoep" : [ {\r
+      "beroepsnaamGecodeerd" : {\r
+        "codeBeroepsnaam" : "string",\r
+        "omschrijvingBeroepsnaam" : "string"\r
+      }\r
+    } ]\r
+  } ]\r
+}</con:request>
+      <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/callbackExample</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>X-VUM-berichtVersie</con:entry>
+        <con:entry>X-VUM-toParty</con:entry>
+        <con:entry>X-VUM-viaParty</con:entry>
+        <con:entry>X-VUM-vraagID</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>

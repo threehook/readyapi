@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="480ae640-5225-4d62-8d4c-3a965c5a9cbc" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SYN_VAC_7_10_Broker_codeNiveauOpleidingIntegerTeHoog" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="480ae640-5225-4d62-8d4c-3a965c5a9cbcfileName">TC_SYN_VAC_7_10_Broker_codeNiveauOpleidingIntegerTeHoog</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="MatchesVacatures" id="f92ca54b-d317-4825-9839-47abde8827ee">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker vacatures" resourcePath="/vacatures/matches" methodName="MatchesVacatures" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="MatchesVacatures" id="a44ad219-31cd-448e-870e-328ace9606b7" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request>{\r
+  "callbackURL" : "http://testing-callback.westeurope.azurecontainer.io/${#TestCase#tc}_${#TestCase#randomGuid}",
+  "postcode" : "3511",
+  "straal" : 10,\r
+  "vraagObject": {
+    "codeWerkEnDenkniveauMinimaal": "s",
+    "indicatieLdrRegistratie": 9,
+    "sluitingsDatumVacature": "2022-01-06",
+    "sollicitatiewijze": [
+      {
+        "codeSollicitatiewijze": "s"
+      }
+    ],
+    "werkgever": {
+      "adresHouding": [
+        {
+          "codeFunctieAdres": "s",
+          "adres": {
+            "adresBuitenland": {
+              "landencodeIso": "st"
+            }
+          }
+        }
+      ],
+      "sector": [
+        {
+          "codeSbi": 99999
+        }
+      ]
+    },
+    "sector": {
+      "codeSbi": 99999
+    },
+    "arbeidsVoorwaarden": {
+      "datumAanvangWerkzaamheden": "2022-01-06",
+      "datumEindeWerkzaamheden": "2022-01-06",
+      "salarisIndicatie": "string"
+    },
+    "contractvorm": [
+      {
+        "codeTypeArbeidscontract": "s",
+        "codeTypeOvereenkomst": "st"
+      }
+    ],
+    "beroep": {
+      "beroepsnaamGecodeerd": {
+        "codeBeroepsnaam": "string",
+        "omschrijvingBeroepsnaam": "string"
+      }
+    },
+    "werkervaring": [
+      {
+        "aantalJarenWerkzaamInBeroep": 99
+      }
+    ],
+    "rijbewijs": [
+      {
+        "codeSoortRijbewijs": "str"
+      }
+    ],
+    "vervoermiddel": [
+      {
+        "indicatieBeschikbaarVoorUitvoeringWerk": 9,
+        "indicatieBeschikbaarVoorWoonWerkverkeer": 9
+      }
+    ],
+    "flexibiliteit": {
+      "codeRegiostraal": 9,
+      "indicatieOnregelmatigWerkOfPloegendienst": 9,
+      "datumAanvangBeschikbaarVoorWerk": "2022-01-06",
+      "datumEindeBeschikbaarVoorWerk": "2022-01-06"
+    },
+    "werktijden": {
+      "aantalWerkurenPerWeekMinimaal": 99,
+      "aantalWerkurenPerWeekMaximaal": 99,
+      "indicatieKantoortijden": 9
+    },
+    "cursus": [
+      {
+        "naamCursus": "string"
+      }
+    ],
+    "opleiding": [
+      {
+        "codeNiveauOpleiding": 19,
+        "indicatieDiploma": 9,
+        "opleidingsnaam": {
+          "opleidingsnaamGecodeerd": {
+            "codeOpleidingsnaam": "9999999999",
+            "omschrijvingOpleidingsnaam": "string"
+          }
+        }
+      }
+    ],
+    "gedragscompetentie": [
+      {
+        "codeGedragscompetentie": "9999999999",
+        "omschrijvingGedragscompetentie": "string",
+        "codeBeheersingGedragscompetentie": 9
+      }
+    ],
+    "vakvaardigheid": [
+      {
+        "omschrijving": "string"
+      }
+    ],
+    "taalbeheersing": [
+      {
+        "codeTaal": "str",
+        "codeNiveauTaalbeheersingMondeling": 9,
+        "codeNiveauTaalbeheersingSchriftelijk": 9,
+        "codeNiveauTaalbeheersingLezen": 9,
+        "codeNiveauTaalbeheersingLuisteren": 9
+      }
+    ]
+  }
+}</con:request>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/vacatures/matches</con:originalUri>
+        <con:assertion type="DataAndMetadataAssertion" id="b197235b-6db7-4932-a9a0-07cacceba6ff" name="Smart Assertion">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>$['code']</con:path>
+              <con:element>code</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>3</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>true</con:numberType>
+              <con:expectedDataType>2</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['message']</con:path>
+              <con:element>message</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>invalid VacatureMatchesRequest.VraagObject: embedded message failed validation | caused by: invalid MPVacature.Opleiding[0]: embedded message failed validation | caused by: invalid MPOpleidingVacature.CodeNiveauOpleiding: value must be inside range [0, 9]</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['details']</con:path>
+              <con:element>details</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>[]</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>4</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{
+ "code": 3,
+ "message": "invalid VacatureMatchesRequest.VraagObject: embedded message failed validation | caused by: invalid MPVacature.Opleiding[0]: embedded message failed validation | caused by: invalid MPOpleidingVacature.CodeNiveauOpleiding: value must be inside range [0, 9]",
+ "details": []
+}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

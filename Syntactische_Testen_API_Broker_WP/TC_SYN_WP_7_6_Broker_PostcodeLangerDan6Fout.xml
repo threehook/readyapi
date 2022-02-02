@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="5928df6e-7cb9-415a-bfd0-61e779736c27" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SYN_WP_7_6_Broker_PostcodeLangerDan6Fout" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5928df6e-7cb9-415a-bfd0-61e779736c27fileName">TC_SYN_WP_7_6_Broker_PostcodeLangerDan6Fout</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="REST Request" id="1572cf86-917c-4aff-b938-da8b206e9946">
+    <con:settings/>
+    <con:config service="99.6 VUM API Broker werkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatcheswerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="b755a096-32e0-4a6a-b3bc-8707558238fb" mediaType="application/json" postQueryString="false">
+        <con:description>Zoekopdracht om matches voor Werkzoekende MatchingProfielen op te vragen</con:description>
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://jobsearch.vum.vum-acct.n-id.network/v1</con:endpoint>
+        <con:request>{
+  "callbackURL" : "test.com",
+  "postcode" : "1011PLPL",
+  "straal" : 50,
+  "vraagObject": {
+    "indicatieLdrRegistratie": 9,
+    "indicatieBeschikbaarheidContactgegevens": 9,
+    "voorkeursland": [
+      {
+        "landencodeIso": "st"
+      }
+    ],
+    "vervoermiddel": [
+      {
+        "indicatieBeschikbaarVoorUitvoeringWerk": 9,
+        "indicatieBeschikbaarVoorWoonWerkverkeer": 9
+      }
+    ],
+    "mobiliteit": {
+      "bemiddelingspostcode": "1234AB",
+      "maximaleReisafstand": 999,
+      "maximaleReistijd": 999
+    },
+    "flexibiliteit": {
+      "codeRegiostraal": 9,
+      "indicatieOnregelmatigWerkOfPloegendienst": 9,
+      "datumAanvangBeschikbaarVoorWerk": "2022-01-06",
+      "datumEindeBeschikbaarVoorWerk": "2022-01-06"
+    },
+    "werktijden": {
+      "aantalWerkurenPerWeekMinimaal": 99,
+      "aantalWerkurenPerWeekMaximaal": 99,
+      "indicatieKantoortijden": 9
+    },
+    "contractvorm": [
+      {
+        "codeTypeArbeidscontract": "s",
+        "codeTypeOvereenkomst": "st"
+      }
+    ],
+    "arbeidsmarktkwalificatie": {
+      "codeWerkEnDenkniveauWerkzoekende": 9,
+      "vakvaardigheid": [
+        {
+          "omschrijving": "string"
+        }
+      ],
+      "taalbeheersing": [
+        {
+          "codeTaal": "str",
+          "codeNiveauTaalbeheersingMondeling": 9,
+          "codeNiveauTaalbeheersingSchriftelijk": 9,
+          "codeNiveauTaalbeheersingLezen": 9,
+          "codeNiveauTaalbeheersingLuisteren": 9
+        }
+      ],
+      "gedragscompetentie": [
+        {
+          "codeGedragscompetentie": "9999999999",
+          "omschrijvingGedragscompetentie": "string",
+          "codeBeheersingGedragscompetentie": 9
+        }
+      ],
+      "rijbewijs": [
+        {
+          "codeSoortRijbewijs": "str"
+        }
+      ],
+      "cursus": [
+        {
+          "naamCursus": "string",
+          "datumCertificaat": "2022-01-06"
+        }
+      ],
+      "opleiding": [
+        {
+          "codeNiveauOpleiding": 9,
+          "indicatieDiploma": 9,
+          "datumDiploma": "2022-01-06",
+          "opleidingsnaam": {
+            "opleidingsnaamGecodeerd": {
+              "codeOpleidingsnaam": "9999999999",
+              "omschrijvingOpleidingsnaam": "string"
+            }
+          }
+        }
+      ],
+      "werkervaring": [
+        {
+          "datumAanvangWerkzaamheden": "2022-01-06",
+          "datumEindeWerkzaamheden": "2022-01-06",
+          "naamOrganisatie": "string",
+          "beroep": {
+            "beroepsnaamGecodeerd": {
+              "codeBeroepsnaam": "string",
+              "omschrijvingBeroepsnaam": "string"
+            }
+          }
+        }
+      ]
+    },
+    "sector": [
+      {
+        "codeSbi": 99999
+      }
+    ],
+    "bemiddelingsberoep": [
+      {
+        "beroepsnaamGecodeerd": {
+          "codeBeroepsnaam": "string",
+          "omschrijvingBeroepsnaam": "string"
+        }
+      },
+      {
+        "beroepsnaamOngecodeerd": {
+          "naamBeroepOngecodeerd": "string"
+        }
+      }
+    ]
+  }
+}</con:request>
+        <con:originalUri>https://jobsearch.vum.vum.n-id.network/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="a54eda4c-2856-418f-a32c-d784668dd8a9" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="4b02180e-f389-4e46-aa0d-d5bb9b8b8a24" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="SwaggerComplianceAssertion" id="9a264f69-e1a7-41be-8ae7-6b5f5fa8aa05" name="Swagger Compliance Assertion">
+          <con:configuration>
+            <swaggerUrl>C:\Users\odenijs\Documents\VUM\FKD &amp; yaml\Koppelvlak specificatie VUM_v0.99.6\VUM-Broker-WerkzoekendeProfielen-0.99.6.yaml</swaggerUrl>
+            <strictMode>true</strictMode>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="c8b03966-6ea2-4b0a-930f-fae1d342acb1" name="Smart Assertion">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>$['code']</con:path>
+              <con:element>code</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>3</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>true</con:numberType>
+              <con:expectedDataType>2</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['message']</con:path>
+              <con:element>message</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>invalid WerkzoekendeProfielMatchesRequest.Postcode: value does not match regex pattern "^[0-9]{4}[a-zA-Z]{2}$"</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['details']</con:path>
+              <con:element>details</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>[]</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>4</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{
+ "code": 3,
+ "message": "invalid WerkzoekendeProfielMatchesRequest.Postcode: value does not match regex pattern \"^[0-9]{4}$\"",
+ "details": []
+}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="X-VUM-toParty" value=""/>
+          <con:entry key="X-VUM-fromParty" value="${fromOIN}"/>
+          <con:entry key="X-VUM-viaParty" value=""/>
+          <con:entry key="X-VUM-berichtVersie" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="c5dfc3b8-e571-4653-9592-48c7baf6f1fd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

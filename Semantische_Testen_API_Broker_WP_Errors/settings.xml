@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="079cae21-cd33-4242-8872-62f58293a298" name="Semantische_Testen_API_Broker_WP_Errors" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="63c2bfe3-e0e7-4d09-8f7e-20618b8891e7fileName">Semantische_Testen_WP_API_Bemiddelaar-Broker_Errors</con:setting>
+    <con:setting id="079cae21-cd33-4242-8872-62f58293a298fileName">Semantische_Testen_API_Broker_WP_Errors</con:setting>
+  </con:settings>
+  <con:runType>PARALLELL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="6052a768-00b8-495b-83bd-a6cc636db3af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

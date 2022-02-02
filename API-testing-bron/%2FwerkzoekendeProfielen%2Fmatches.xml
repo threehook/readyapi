@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/werkzoekendeProfielen/matches" path="/werkzoekendeProfielen/matches" id="6f2f48db-420f-4a45-a609-f3213d72199e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="6f2f48db-420f-4a45-a609-f3213d72199efileName">%2FwerkzoekendeProfielen%2Fmatches</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="post_zoek_matches" id="67097737-8071-439e-9f21-aab49337b743" method="POST">
+    <con:description>Zoek matches voor een bepaald zoekprofiel</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>X-VUM-berichtVersie</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-fromParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-toParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-viaParty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-VUM-SUWIparty</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:dataType>boolean</con:dataType>
+        <con:default/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "hoeveelheidResultaten" : 0
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>[ {
+  "maximumAantalResultatenBereikt" : true,
+  "matches" : [ {
+    "idWerkzoekende" : "string",
+    "indicatieLdrRegistratie" : 0,
+    "indicatieBeschikbaarheidContactgegevens" : 0,
+    "persoonlijkePresentatie" : "string",
+    "voorkeursland" : [ {
+      "landencodeIso" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+    } ],
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "string",
+      "codeTypeOvereenkomst" : "string"
+    } ],
+    "sector" : [ {
+      "codeSbi" : 0
+    } ],
+    "bemiddelingsberoep" : [ {
+      "codeBeroepsnaam" : "string",
+      "omschrijvingBeroepsnaam" : "string",
+      "naamBeroepOngecodeerd" : "string"
+    } ]
+  } ]
+} ]</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="3745cecb-ae41-41b5-9c92-d0c20bb66397" mediaType="application/json" postQueryString="false">
+      <con:settings/>
+      <con:endpoint>http://testing-bron.westeurope.azurecontainer.io</con:endpoint>
+      <con:request>{\r
+  "hoeveelheidResultaten" : 0\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="X-VUM-toParty" value=""/>
+        <con:entry key="X-VUM-fromParty" value=""/>
+        <con:entry key="X-VUM-viaParty" value=""/>
+        <con:entry key="X-VUM-SUWIparty" value=""/>
+        <con:entry key="X-VUM-berichtVersie" value=""/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+</con:resource>

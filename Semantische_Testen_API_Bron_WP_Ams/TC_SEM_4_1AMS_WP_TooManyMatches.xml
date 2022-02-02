@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="282f6af9-9063-4ade-9129-8579d2aa5aa0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SEM_4_1AMS_WP_TooManyMatches" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>Bij deze testcase moet je eerst het maximumaantalResultaten van een bron op 1 instellen en aan het eind weer terugzetten naar de oorspronkelijke waarde.
+Vandaar dat deze standaard op disabled staat.</con:description>
+  <con:settings>
+    <con:setting id="282f6af9-9063-4ade-9129-8579d2aa5aa0fileName">TC_SEM_4_1AMS_WP_TooManyMatches</con:setting>
+  </con:settings>
+  <con:testStep type="manualTestStep" name="ManualSetMaximumResultaten1" id="ed4ee651-c7bc-475f-887f-fba3c28da5c4">
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getMatches" id="3f7625f3-f6fc-407d-a3e5-8c9edc0cf9f6">
+    <con:settings/>
+    <con:config service="99.6 VUM API BRON Ams WerkzoekendeProfielen" resourcePath="/werkzoekendeProfielen/matches" methodName="MatchesWerkzoekendeProfielen" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getMatches" id="a86d716d-33e6-401a-ba15-b5c4556b89d5" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.example.com/v1</con:endpoint>
+        <con:request>{
+  "vraagObject" : {
+    "indicatieLdrRegistratie" : 0,
+    "indicatieBeschikbaarheidContactgegevens" : 0,
+    "voorkeursland" : [ {
+      "landencodeIso" : "string"
+    } ],
+    "vervoermiddel" : [ {
+      "indicatieBeschikbaarVoorUitvoeringWerk" : 0,
+      "indicatieBeschikbaarVoorWoonWerkverkeer" : 0
+    } ],
+    "mobiliteit" : {
+      "bemiddelingspostcode" : "1411",
+      "maximaleReisafstand" : 999,
+      "maximaleReistijd" : 9
+    },
+    "flexibiliteit" : {
+      "codeRegiostraal" : 0,
+      "indicatieOnregelmatigWerkOfPloegendienst" : 0,
+      "datumAanvangBeschikbaarVoorWerk" : "2015-07-20",
+      "datumEindeBeschikbaarVoorWerk" : "2015-07-20"
+    },
+    "werktijden" : {
+      "aantalWerkurenPerWeekMinimaal" : 0,
+      "aantalWerkurenPerWeekMaximaal" : 0,
+      "indicatieKantoortijden" : 0
+    },
+    "contractvorm" : [ {
+      "codeTypeArbeidscontract" : "s",
+      "codeTypeOvereenkomst" : "st"
+    } ],
+    "arbeidsmarktkwalificatie" : {
+      "codeWerkEnDenkniveauWerkzoekende" : 0,
+      "vakvaardigheid" : [ {
+        "omschrijving" : "string"
+      } ],
+      "taalbeheersing" : [ {
+        "codeTaal" : "st",
+        "codeNiveauTaalbeheersingMondeling" : 0,
+        "codeNiveauTaalbeheersingSchriftelijk" : 0,
+        "codeNiveauTaalbeheersingLezen" : 0,
+        "codeNiveauTaalbeheersingLuisteren" : 0
+      } ],
+      "gedragscompetentie" : [ {
+        "codeGedragscompetentie" : 0,
+        "omschrijvingGedragscompetentie" : "string",
+        "codeBeheersingGedragscompetentie" : 0
+      } ],
+      "rijbewijs" : [ {
+        "codeSoortRijbewijs" : "str"
+      } ],
+      "cursus" : [ {
+        "naamCursus" : "max1result",
+        "datumCertificaat" : "2015-07-20"
+      } ],
+      "opleiding" : [ {
+        "codeNiveauOpleiding" : 0,
+        "indicatieDiploma" : 0,
+        "datumDiploma" : "2015-07-20",
+        "opleidingsnaam" : {
+          "codeOpleidingsnaam" : "string",
+          "omschrijvingOpleidingsnaam" : "string"
+        }
+      } ],
+      "werkervaring" : [ {
+        "datumAanvangWerkzaamheden" : "2015-07-20",
+        "datumEindeWerkzaamheden" : "2015-07-20",
+        "naamOrganisatie" : "string",
+        "beroep" : {
+          "codeBeroepsnaam" : "string",
+          "omschrijvingBeroepsnaam" : "string"
+        }
+      } ]
+    },
+    "sector" : [ {
+      "codeSbi" : 0
+    } ],
+    "bemiddelingsberoep" : [ {
+      "codeBeroepsnaam" : "string",
+      "omschrijvingBeroepsnaam" : "string"
+    } ]
+  }
+}</con:request>
+        <con:originalUri>http://testing-bron.westeurope.azurecontainer.io/api/v1/werkzoekendeProfielen/matches</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1af80c6b-c333-477e-90d3-5514bb814adf" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Count" id="9d73152b-7593-4b25-8783-e05b4ecec313" name="JSONPath Count" disabled="true">
+          <con:configuration>
+            <path>$['matches']</path>
+            <content>&lt; 101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>X-VUM-berichtVersie</con:entry>
+          <con:entry>X-VUM-fromParty</con:entry>
+          <con:entry>X-VUM-toParty</con:entry>
+          <con:entry>X-VUM-viaParty</con:entry>
+          <con:entry>X-VUM-SUWIparty</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="assertLessThan2" id="fe6deefb-5775-4681-b333-3a1855bfeac4">
+    <con:settings/>
+    <con:config>
+      <script>import groovy.json.*;
+import groovy.util.*;
+def response = context.response;
+log.info(response.toString())
+def responseObject = new JsonSlurper().parseText(response)
+if (responseObject.size() > 1) {
+	log.info("Aantal aanwezige matches (" + responseObject.size() + ") > 1 (maxlimiet toegestane aantal)");
+	assert false;
+} else {
+	log.info("Aantal aanwezige matches " + responseObject.size() + " is &lt;= 1 (maxlimiet toegestane aantal)");
+	assert true;
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="setMaximumResultatenWaardeTerug" id="ccb41b8f-5771-4717-8e09-b12c03bd8421">
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>repeat</con:name>
+      <con:value>0</con:value>
+    </con:property>
+    <con:property>
+      <con:name>matches1Aanwezig</con:name>
+      <con:value>1</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testCase>

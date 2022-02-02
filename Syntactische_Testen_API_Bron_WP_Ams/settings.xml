@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="e61fd486-2335-4771-9f28-87f2c2f8876b" name="Syntactische_Testen_API_Bron_WP_Ams" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="798d80a5-4cbf-461f-94d9-2863eca55b1bfileName">Syntactische_Testen_wp_Ams_Bron</con:setting>
+    <con:setting id="e61fd486-2335-4771-9f28-87f2c2f8876bfileName">Syntactische_Testen_API_Bron_WP_Ams</con:setting>
+  </con:settings>
+  <con:runType>PARALLELL</con:runType>
+  <con:properties>
+    <con:property>
+      <con:name>datum</con:name>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="b652af83-4ed9-49cb-baa0-fe313098294e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

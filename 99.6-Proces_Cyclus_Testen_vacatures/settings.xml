@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="eabcc0f5-9050-48d1-a1fd-e16b6834a581" name="99.6 Proces_Cyclus_Testen_vacatures" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1205c883-2065-41ea-891f-6fd20c12016cfileName">Proces_Cyclus_Testen_werkzoekendeProfielen</con:setting>
+    <con:setting id="6d0532fd-1e8c-486a-990e-0fc172be03d5fileName">99.4-Proces_Cyclus_Testen_vacatures</con:setting>
+    <con:setting id="eabcc0f5-9050-48d1-a1fd-e16b6834a581fileName">99.6-Proces_Cyclus_Testen_vacatures</con:setting>
+  </con:settings>
+  <con:runType>PARALLELL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/{path}" path="/{path}" id="78d11b3b-bf79-41e8-a156-386c8b6430e9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="78d11b3b-bf79-41e8-a156-386c8b6430e9fileName">%2F%7Bpath%7D</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>path</con:name>
+      <con:value/>
+      <con:style>TEMPLATE</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="CB_get_post_receiver" id="67a57633-8734-4a28-b053-cc7ac989ccfc" method="GET">
+    <con:description>Retrieve data from temp storage</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>[ {
+  "body" : "string",
+  "headers" : { },
+  "path" : "string",
+  "timestamp" : 1.5
+} ]</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="1dd9ab6f-459b-4329-8e10-d079c54abbc8" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-callback.westeurope.azurecontainer.io</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="path" value="${#TestCase#tc}_${#TestCase#randomGuid}"/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+  <con:method name="CB_post_post_receiver" id="7e04f044-6ae4-4a00-86fb-7fa4dacfccf4" method="POST">
+    <con:description>Data to save to temp storage</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="8cef3a5c-7b57-4f93-bc71-18c8e895b802" mediaType="application/json" postQueryString="false">
+      <con:settings/>
+      <con:endpoint>http://testing-callback.westeurope.azurecontainer.io</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="path" value="${#TestCase#tc}_${#TestCase#randomGuid}"/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+  <con:method name="get_post_receiver" id="5daf5e0d-e1c4-416d-8a35-387ed3463219" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="acbb2fdc-9cbf-4349-9da8-8df732270e17" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-callback.westeurope.azurecontainer.io</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="post_post_receiver" id="c7bbac2c-a88b-4b05-aafc-e3e37f1522bf" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="d20a206c-88f6-4d93-a4e3-f90195fd27c5" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://testing-callback.westeurope.azurecontainer.io</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

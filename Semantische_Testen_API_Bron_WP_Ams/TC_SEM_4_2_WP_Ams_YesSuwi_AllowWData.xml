@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="1eab457d-1291-496a-a94e-0ea7c9828d73" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC_SEM_4_2_WP_Ams_YesSuwi_AllowWData" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1eab457d-1291-496a-a94e-0ea7c9828d73fileName">TC_SEM_4_2_WP_Ams_YesSuwi_AllowWData</con:setting>
+  </con:settings>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

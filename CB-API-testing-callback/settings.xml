@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="7fe02f19-c8a0-4a4c-9fc5-c73525521c7a" name="CB API testing-callback" type="rest_ex" wadlVersion="https://swagger.io/swagger2/specification" definitionUrl="http://testing-callback.westeurope.azurecontainer.io/swagger.json" basePath="" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:description>Api to capture post requests</con:description>
+  <con:settings>
+    <con:setting id="7fe02f19-c8a0-4a4c-9fc5-c73525521c7afileName">CB-API-testing-callback</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="http://testing-callback.westeurope.azurecontainer.io/swagger.json">
+    <con:part>
+      <con:url>http://testing-callback.westeurope.azurecontainer.io/swagger.json</con:url>
+      <con:content>{"swagger":"2.0","basePath":"\/","paths":{"\/{path}":{"parameters":[{"name":"path","in":"path","required":true,"type":"string"}],"post":{"responses":{"200":{"description":"Success"}},"summary":"Data to save to temp storage","operationId":"post_post_receiver","tags":["default"]},"get":{"responses":{"200":{"description":"Correct response","schema":{"type":"array","items":{"$ref":"#\/definitions\/Request"}}}},"summary":"Retrieve data from temp storage","operationId":"get_post_receiver","tags":["default"]}}},"info":{"title":"Public API","version":"v1","description":"Api to capture post requests"},"produces":["application\/json"],"consumes":["application\/json"],"tags":[{"name":"default","description":"Api to capture post requests"}],"definitions":{"Request":{"properties":{"body":{"type":"string"},"headers":{"type":"object","description":"Headers which were send with request in JSON dict"},"path":{"type":"string"},"timestamp":{"type":"number"}},"type":"object"}},"responses":{"ParseError":{"description":"When a mask can't be parsed"},"MaskError":{"description":"When any error occurs on mask"}}}</con:content>
+      <con:type>https://swagger.io/swagger2/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>http://testing-callback.westeurope.azurecontainer.io</con:endpoint>
+  </con:endpoints>
+</con:interface>
