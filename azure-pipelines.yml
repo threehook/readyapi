@@ -9,7 +9,7 @@ pool:
 
 schedules:
 - cron: 0 */3 * * * # cron syntax tbv een start om 03:00 uur
-  displayName: ReadyAPI tests tegen VUM services om 03:00 uur # Naam van deze schedule
+  displayName: ReadyAPI tests tegen VUM services om 03:00 uur # Display naam van deze schedule
   branches:
     include:
     - develop  # Op welke branch deze schedule van toepassing is
