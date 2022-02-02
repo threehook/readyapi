@@ -1,22 +1,28 @@
-# This pipeline runs ReadyAPI tests agains the VUM services at 03:00 o'clock.
+# Deze pipeline draait ReadyAPI tests tegen de VUM services om 03:00 uur ('s-nachts').
 
-# This pipeline is triggered by time and not by a commit.
-trigger: none # Disable CI commit trigger
-pr: none # Disable pull request triggers.
+# Trigger obv tijd en niet door een commit.
+trigger: none # Zet de CI commit trigger uit
+pr: none # Zet de pull request trigger uit.
 
 pool:
   vmImage: ubuntu-latest
 
 schedules:
-- cron: 0 */3 * * * # cron syntax defining a schedule
-  displayName: ReadyAPI tests tegen VUM services om 03:00 uur # friendly name given to a specific schedule
+- cron: 0 */3 * * * # cron syntax tbv een start om 03:00 uur
+  displayName: ReadyAPI tests tegen VUM services om 03:00 uur # Naam van deze schedule
   branches:
-    include: [ develop ] # which branches the schedule applies to
-
-
-
+    include:
+    - develop  # Op welke branch deze schedule van toepassing is
 
 steps:
+- task: DownloadGitHubRelease@0
+  inputs:
+    connection: https://gitlab.com/inlichtingenbureau/
+    userRepository: vum/readyapi_testen_v2
+    #defaultVersionType: 'latest' # Options: latest, specificVersion, specificTag
+    #version: # Required when defaultVersionType != Latest
+    #itemPattern: '**' # Optional
+    #downloadPath: '$(System.ArtifactsDirectory)' 
 - task: SoapUIProForAzureDevOpsTask@2
   inputs:
     project: '99.6-VUM-API-BRON-Utr-WerkzoekendeProfielen'
