@@ -12,4 +12,5 @@ pool:
 steps:
 - task: SoapUIProForAzureDevOpsTask@2
   inputs:
+    project: '99.6-VUM-API-BRON-Utr-WerkzoekendeProfielen'
     rootFolder: '$(Common.TestResultsDirectory)'
