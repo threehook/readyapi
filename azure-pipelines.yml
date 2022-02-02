@@ -19,7 +19,7 @@ steps:
   inputs:
     connection: https://gitlab.com/inlichtingenbureau/
     userRepository: vum/readyapi_testen_v2
-    #defaultVersionType: 'latest' # Opties: latest, specificVersion, specificTag
+    #defaultVersionType: 'latest' # Opties: latest (=default), specificVersion, specificTag
     #version: # Verplicht als defaultVersionType != Latest
     #itemPattern: '**' # Optioneel file pattern voor te downloaden files
     #downloadPath: '$(System.ArtifactsDirectory)' # Pad op de agent machine waar de release assets worden gedownload
